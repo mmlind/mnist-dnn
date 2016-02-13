@@ -1,0 +1,155 @@
+\hypertarget{mnist-utils_8c}{}\section{util/mnist-\/utils.c File Reference}
+\label{mnist-utils_8c}\index{util/mnist-\/utils.\+c@{util/mnist-\/utils.\+c}}
+
+
+Utitlies for handling the M\+N\+I\+S\+T files.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}mnist-\/utils.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{mnist-utils_8c_a726f2a67e4165a46d748843d2b6156f9}{flip\+Bytes} (uint32\+\_\+t n)
+\item 
+void \hyperlink{mnist-utils_8c_a5136ef4142d6fb378b466e94fca8bb82}{read\+Image\+File\+Header} (F\+I\+L\+E $\ast$image\+File, \hyperlink{struct_m_n_i_s_t___image_file_header}{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header} $\ast$ifh)
+\item 
+void \hyperlink{mnist-utils_8c_a5128bf9a73a458a9580b81b31c0c0d5c}{read\+Label\+File\+Header} (F\+I\+L\+E $\ast$image\+File, \hyperlink{struct_m_n_i_s_t___label_file_header}{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header} $\ast$lfh)
+\item 
+F\+I\+L\+E $\ast$ \hyperlink{mnist-utils_8c_a8a5ef24b830e1a8f15a080db2ab8bb12}{open\+M\+N\+I\+S\+T\+Image\+File} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Read M\+N\+I\+S\+T I\+M\+A\+G\+E file header. \end{DoxyCompactList}\item 
+F\+I\+L\+E $\ast$ \hyperlink{mnist-utils_8c_a443abebe82519f810aeb2cb226d4bc99}{open\+M\+N\+I\+S\+T\+Label\+File} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Read M\+N\+I\+S\+T label file header. \end{DoxyCompactList}\item 
+\hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} \hyperlink{mnist-utils_8c_a0076b10c59220ac7cbf26d0c79b330d0}{get\+Image} (F\+I\+L\+E $\ast$image\+File)
+\begin{DoxyCompactList}\small\item\em Returns the next image in given M\+N\+I\+S\+T image file. \end{DoxyCompactList}\item 
+\hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} \hyperlink{mnist-utils_8c_aee2b09d74a09167a2a9e2e502ee417b8}{get\+Image\+By\+Position} (F\+I\+L\+E $\ast$image\+File, int position)
+\item 
+\hyperlink{mnist-utils_8h_ac563f2337f8e23f2dcc095e41c138bfa}{M\+N\+I\+S\+T\+\_\+\+Label} \hyperlink{mnist-utils_8c_ae38097965d1c8edf5b054aee0adafe0d}{get\+Label} (F\+I\+L\+E $\ast$label\+File)
+\begin{DoxyCompactList}\small\item\em Returns the next label in given M\+N\+I\+S\+T label file. \end{DoxyCompactList}\item 
+\hyperlink{mnist-utils_8h_ac563f2337f8e23f2dcc095e41c138bfa}{M\+N\+I\+S\+T\+\_\+\+Label} \hyperlink{mnist-utils_8c_a07653e83b31f5347c3a38d502ce0fcf6}{get\+Label\+By\+Position} (F\+I\+L\+E $\ast$label\+File, int position)
+\item 
+\hyperlink{struct_vector}{Vector} $\ast$ \hyperlink{mnist-utils_8c_a30f07d837cc0a1091e998ca7cddeb2f4}{get\+Vector\+From\+Image} (\hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} $\ast$img)
+\begin{DoxyCompactList}\small\item\em Returns a \hyperlink{struct_vector}{Vector} holding the image pixels of a given M\+N\+I\+S\+T image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utitlies for handling the M\+N\+I\+S\+T files. 
+
+\begin{DoxySeeAlso}{See also}
+\href{http://yann.lecun.com/exdb/mnist/}{\tt http\+://yann.\+lecun.\+com/exdb/mnist/} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Matt Lind 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+July 2015 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{mnist-utils_8c_a726f2a67e4165a46d748843d2b6156f9}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!flip\+Bytes@{flip\+Bytes}}
+\index{flip\+Bytes@{flip\+Bytes}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{flip\+Bytes(uint32\+\_\+t n)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flip\+Bytes (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{n}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a726f2a67e4165a46d748843d2b6156f9}
+Reverse byte order in 32bit numbers M\+N\+I\+S\+T files contain all numbers in reversed byte order, and hence must be reversed before using \hypertarget{mnist-utils_8c_a0076b10c59220ac7cbf26d0c79b330d0}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!get\+Image@{get\+Image}}
+\index{get\+Image@{get\+Image}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{get\+Image(\+F\+I\+L\+E $\ast$image\+File)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Image} get\+Image (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{image\+File}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a0076b10c59220ac7cbf26d0c79b330d0}
+
+
+Returns the next image in given M\+N\+I\+S\+T image file. 
+
+Returns the next image in the given M\+N\+I\+S\+T image file \hypertarget{mnist-utils_8c_aee2b09d74a09167a2a9e2e502ee417b8}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!get\+Image\+By\+Position@{get\+Image\+By\+Position}}
+\index{get\+Image\+By\+Position@{get\+Image\+By\+Position}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{get\+Image\+By\+Position(\+F\+I\+L\+E $\ast$image\+File, int position)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Image} get\+Image\+By\+Position (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{image\+File, }
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_aee2b09d74a09167a2a9e2e502ee417b8}
+\hypertarget{mnist-utils_8c_ae38097965d1c8edf5b054aee0adafe0d}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!get\+Label@{get\+Label}}
+\index{get\+Label@{get\+Label}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{get\+Label(\+F\+I\+L\+E $\ast$label\+File)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Label} get\+Label (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{label\+File}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_ae38097965d1c8edf5b054aee0adafe0d}
+
+
+Returns the next label in given M\+N\+I\+S\+T label file. 
+
+Returns the next label in the given M\+N\+I\+S\+T label file \hypertarget{mnist-utils_8c_a07653e83b31f5347c3a38d502ce0fcf6}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!get\+Label\+By\+Position@{get\+Label\+By\+Position}}
+\index{get\+Label\+By\+Position@{get\+Label\+By\+Position}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{get\+Label\+By\+Position(\+F\+I\+L\+E $\ast$label\+File, int position)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Label} get\+Label\+By\+Position (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{label\+File, }
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a07653e83b31f5347c3a38d502ce0fcf6}
+\hypertarget{mnist-utils_8c_a30f07d837cc0a1091e998ca7cddeb2f4}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!get\+Vector\+From\+Image@{get\+Vector\+From\+Image}}
+\index{get\+Vector\+From\+Image@{get\+Vector\+From\+Image}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{get\+Vector\+From\+Image(\+M\+N\+I\+S\+T\+\_\+\+Image $\ast$img)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$\ast$ get\+Vector\+From\+Image (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+N\+I\+S\+T\+\_\+\+Image} $\ast$}]{img}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a30f07d837cc0a1091e998ca7cddeb2f4}
+
+
+Returns a \hyperlink{struct_vector}{Vector} holding the image pixels of a given M\+N\+I\+S\+T image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & A pointer to a M\+N\+I\+S\+T image \\
+\hline
+\end{DoxyParams}
+\hypertarget{mnist-utils_8c_a8a5ef24b830e1a8f15a080db2ab8bb12}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!open\+M\+N\+I\+S\+T\+Image\+File@{open\+M\+N\+I\+S\+T\+Image\+File}}
+\index{open\+M\+N\+I\+S\+T\+Image\+File@{open\+M\+N\+I\+S\+T\+Image\+File}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{open\+M\+N\+I\+S\+T\+Image\+File(char $\ast$file\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ open\+M\+N\+I\+S\+T\+Image\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Name}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a8a5ef24b830e1a8f15a080db2ab8bb12}
+
+
+Read M\+N\+I\+S\+T I\+M\+A\+G\+E file header. 
+
+Open M\+N\+I\+S\+T image file and read header info by reading the header info, the read pointer is moved to the position of the 1st I\+M\+A\+G\+E \hypertarget{mnist-utils_8c_a443abebe82519f810aeb2cb226d4bc99}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!open\+M\+N\+I\+S\+T\+Label\+File@{open\+M\+N\+I\+S\+T\+Label\+File}}
+\index{open\+M\+N\+I\+S\+T\+Label\+File@{open\+M\+N\+I\+S\+T\+Label\+File}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{open\+M\+N\+I\+S\+T\+Label\+File(char $\ast$file\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ open\+M\+N\+I\+S\+T\+Label\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Name}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a443abebe82519f810aeb2cb226d4bc99}
+
+
+Read M\+N\+I\+S\+T label file header. 
+
+Open M\+N\+I\+S\+T label file and read header info by reading the header info, the read pointer is moved to the position of the 1st L\+A\+B\+E\+L \hypertarget{mnist-utils_8c_a5136ef4142d6fb378b466e94fca8bb82}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!read\+Image\+File\+Header@{read\+Image\+File\+Header}}
+\index{read\+Image\+File\+Header@{read\+Image\+File\+Header}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{read\+Image\+File\+Header(\+F\+I\+L\+E $\ast$image\+File, M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header $\ast$ifh)}]{\setlength{\rightskip}{0pt plus 5cm}void read\+Image\+File\+Header (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{image\+File, }
+\item[{{\bf M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header} $\ast$}]{ifh}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a5136ef4142d6fb378b466e94fca8bb82}
+Read M\+N\+I\+S\+T image file header \begin{DoxySeeAlso}{See also}
+\href{http://yann.lecun.com/exdb/mnist/}{\tt http\+://yann.\+lecun.\+com/exdb/mnist/} for definition details 
+\end{DoxySeeAlso}
+\hypertarget{mnist-utils_8c_a5128bf9a73a458a9580b81b31c0c0d5c}{}\index{mnist-\/utils.\+c@{mnist-\/utils.\+c}!read\+Label\+File\+Header@{read\+Label\+File\+Header}}
+\index{read\+Label\+File\+Header@{read\+Label\+File\+Header}!mnist-\/utils.\+c@{mnist-\/utils.\+c}}
+\subsubsection[{read\+Label\+File\+Header(\+F\+I\+L\+E $\ast$image\+File, M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header $\ast$lfh)}]{\setlength{\rightskip}{0pt plus 5cm}void read\+Label\+File\+Header (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{image\+File, }
+\item[{{\bf M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header} $\ast$}]{lfh}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8c_a5128bf9a73a458a9580b81b31c0c0d5c}
+Read M\+N\+I\+S\+T label file header \begin{DoxySeeAlso}{See also}
+\href{http://yann.lecun.com/exdb/mnist/}{\tt http\+://yann.\+lecun.\+com/exdb/mnist/} for definition details 
+\end{DoxySeeAlso}

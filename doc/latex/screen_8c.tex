@@ -1,0 +1,115 @@
+\hypertarget{screen_8c}{}\section{util/screen.c File Reference}
+\label{screen_8c}\index{util/screen.\+c@{util/screen.\+c}}
+
+
+Utitlies for advanced input and output to terminal screen.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}screen.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../mlnn.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{screen_8c_a9d7e8af417b6d543da691e9c0e2f6f9f}{clear\+Screen} ()
+\begin{DoxyCompactList}\small\item\em Clear terminal screen by printing an escape sequence. \end{DoxyCompactList}\item 
+void \hyperlink{screen_8c_acecf901c15a2150148863cbc4d0709da}{set\+Color} (\hyperlink{screen_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} c)
+\begin{DoxyCompactList}\small\item\em Set text color in terminal by printing an escape sequence. \end{DoxyCompactList}\item 
+void \hyperlink{screen_8c_a0d9b88ebe279c8a88885f9c1366cdfc6}{move\+Cursor\+To} (const int x)
+\item 
+void \hyperlink{screen_8c_a2f5ac8127b63323d1973308a23cddc1d}{move\+Cursor\+Left} (const int x)
+\item 
+void \hyperlink{screen_8c_ad2882233e3cb558b6b4851b5b20f2864}{locate\+Cursor} (const int row, const int col)
+\begin{DoxyCompactList}\small\item\em Set cursor position to given coordinates in the terminal window. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{screen_8c_a4de43aabc7dfdca6c8892edc32fd717b}{get\+Layer\+Type\+String} (\hyperlink{mlnn_8h_a56943a0946e5f15e5e58054b8e7a04a4}{Layer\+Type} lt)
+\item 
+char $\ast$ \hyperlink{screen_8c_aa34e4774ed179e04c8773ed5c7b01389}{get\+Activation\+Type\+String} (\hyperlink{mlnn_8h_a56b0419d049f390f332329193f952b41}{Act\+Fct\+Type} at)
+\item 
+void \hyperlink{screen_8c_a3267807d89ea00ee938dc38e2a9fc587}{output\+Network\+Definition} (int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utitlies for advanced input and output to terminal screen. 
+
+\begin{DoxyAuthor}{Author}
+Matt Lind 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+July 2015 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{screen_8c_a9d7e8af417b6d543da691e9c0e2f6f9f}{}\index{screen.\+c@{screen.\+c}!clear\+Screen@{clear\+Screen}}
+\index{clear\+Screen@{clear\+Screen}!screen.\+c@{screen.\+c}}
+\subsubsection[{clear\+Screen()}]{\setlength{\rightskip}{0pt plus 5cm}void clear\+Screen (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{screen_8c_a9d7e8af417b6d543da691e9c0e2f6f9f}
+
+
+Clear terminal screen by printing an escape sequence. 
+
+Clear terminal screen by printing an escape sequence \hypertarget{screen_8c_aa34e4774ed179e04c8773ed5c7b01389}{}\index{screen.\+c@{screen.\+c}!get\+Activation\+Type\+String@{get\+Activation\+Type\+String}}
+\index{get\+Activation\+Type\+String@{get\+Activation\+Type\+String}!screen.\+c@{screen.\+c}}
+\subsubsection[{get\+Activation\+Type\+String(\+Act\+Fct\+Type at)}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Activation\+Type\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf Act\+Fct\+Type}}]{at}
+\end{DoxyParamCaption}
+)}\label{screen_8c_aa34e4774ed179e04c8773ed5c7b01389}
+\hypertarget{screen_8c_a4de43aabc7dfdca6c8892edc32fd717b}{}\index{screen.\+c@{screen.\+c}!get\+Layer\+Type\+String@{get\+Layer\+Type\+String}}
+\index{get\+Layer\+Type\+String@{get\+Layer\+Type\+String}!screen.\+c@{screen.\+c}}
+\subsubsection[{get\+Layer\+Type\+String(\+Layer\+Type lt)}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\+Layer\+Type\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Type}}]{lt}
+\end{DoxyParamCaption}
+)}\label{screen_8c_a4de43aabc7dfdca6c8892edc32fd717b}
+\hypertarget{screen_8c_ad2882233e3cb558b6b4851b5b20f2864}{}\index{screen.\+c@{screen.\+c}!locate\+Cursor@{locate\+Cursor}}
+\index{locate\+Cursor@{locate\+Cursor}!screen.\+c@{screen.\+c}}
+\subsubsection[{locate\+Cursor(const int row, const int col)}]{\setlength{\rightskip}{0pt plus 5cm}void locate\+Cursor (
+\begin{DoxyParamCaption}
+\item[{const int}]{row, }
+\item[{const int}]{col}
+\end{DoxyParamCaption}
+)}\label{screen_8c_ad2882233e3cb558b6b4851b5b20f2864}
+
+
+Set cursor position to given coordinates in the terminal window. 
+
+Set cursor position to given coordinates in the terminal window \hypertarget{screen_8c_a2f5ac8127b63323d1973308a23cddc1d}{}\index{screen.\+c@{screen.\+c}!move\+Cursor\+Left@{move\+Cursor\+Left}}
+\index{move\+Cursor\+Left@{move\+Cursor\+Left}!screen.\+c@{screen.\+c}}
+\subsubsection[{move\+Cursor\+Left(const int x)}]{\setlength{\rightskip}{0pt plus 5cm}void move\+Cursor\+Left (
+\begin{DoxyParamCaption}
+\item[{const int}]{x}
+\end{DoxyParamCaption}
+)}\label{screen_8c_a2f5ac8127b63323d1973308a23cddc1d}
+\hypertarget{screen_8c_a0d9b88ebe279c8a88885f9c1366cdfc6}{}\index{screen.\+c@{screen.\+c}!move\+Cursor\+To@{move\+Cursor\+To}}
+\index{move\+Cursor\+To@{move\+Cursor\+To}!screen.\+c@{screen.\+c}}
+\subsubsection[{move\+Cursor\+To(const int x)}]{\setlength{\rightskip}{0pt plus 5cm}void move\+Cursor\+To (
+\begin{DoxyParamCaption}
+\item[{const int}]{x}
+\end{DoxyParamCaption}
+)}\label{screen_8c_a0d9b88ebe279c8a88885f9c1366cdfc6}
+\hypertarget{screen_8c_a3267807d89ea00ee938dc38e2a9fc587}{}\index{screen.\+c@{screen.\+c}!output\+Network\+Definition@{output\+Network\+Definition}}
+\index{output\+Network\+Definition@{output\+Network\+Definition}!screen.\+c@{screen.\+c}}
+\subsubsection[{output\+Network\+Definition(int layer\+Count, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}void output\+Network\+Definition (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{screen_8c_a3267807d89ea00ee938dc38e2a9fc587}
+\hypertarget{screen_8c_acecf901c15a2150148863cbc4d0709da}{}\index{screen.\+c@{screen.\+c}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!screen.\+c@{screen.\+c}}
+\subsubsection[{set\+Color(\+Color c)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf Color}}]{c}
+\end{DoxyParamCaption}
+)}\label{screen_8c_acecf901c15a2150148863cbc4d0709da}
+
+
+Set text color in terminal by printing an escape sequence. 
+
+Set text color in terminal by printing an escape sequence 

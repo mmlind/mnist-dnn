@@ -1,0 +1,256 @@
+\hypertarget{mnist-utils_8h}{}\section{util/mnist-\/utils.h File Reference}
+\label{mnist-utils_8h}\index{util/mnist-\/utils.\+h@{util/mnist-\/utils.\+h}}
+
+
+Utitlies for handling the M\+N\+I\+S\+T files.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_vector}{Vector}
+\item 
+struct \hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image}
+\begin{DoxyCompactList}\small\item\em Data block defining a M\+N\+I\+S\+T image. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_m_n_i_s_t___image_file_header}{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header}
+\begin{DoxyCompactList}\small\item\em Data block defining a M\+N\+I\+S\+T image file header. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_m_n_i_s_t___label_file_header}{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header}
+\begin{DoxyCompactList}\small\item\em Data block defining a M\+N\+I\+S\+T label file header. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mnist-utils_8h_ad46661079c809c87a6417a2831b1f33a}{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/train-\/images-\/idx3-\/ubyte\char`\"{}
+\begin{DoxyCompactList}\small\item\em M\+N\+I\+S\+T image training file in the data folder. \end{DoxyCompactList}\item 
+\#define \hyperlink{mnist-utils_8h_a37971d2433c703aebccf946f2cf1a10a}{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/train-\/labels-\/idx1-\/ubyte\char`\"{}
+\begin{DoxyCompactList}\small\item\em M\+N\+I\+S\+T label training file in the data folder. \end{DoxyCompactList}\item 
+\#define \hyperlink{mnist-utils_8h_ac88cc92111215fbe06eb9918d43f1e00}{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/t10k-\/images-\/idx3-\/ubyte\char`\"{}
+\begin{DoxyCompactList}\small\item\em M\+N\+I\+S\+T image testing file in the data folder. \end{DoxyCompactList}\item 
+\#define \hyperlink{mnist-utils_8h_ab5fd6cc8cfbb6c18e24e24e046816f50}{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/t10k-\/labels-\/idx1-\/ubyte\char`\"{}
+\begin{DoxyCompactList}\small\item\em M\+N\+I\+S\+T label testing file in the data folder. \end{DoxyCompactList}\item 
+\#define \hyperlink{mnist-utils_8h_a0ea148c64cbba94b2d074a069acfd121}{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}~60000
+\begin{DoxyCompactList}\small\item\em number of images+labels in the T\+R\+A\+I\+N file/s \end{DoxyCompactList}\item 
+\#define \hyperlink{mnist-utils_8h_a4fc27b25f2ac15c55c99bdf4c59f2410}{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}~10000
+\begin{DoxyCompactList}\small\item\em number of images+labels in the T\+E\+S\+T file/s \end{DoxyCompactList}\item 
+\#define \hyperlink{mnist-utils_8h_afa9a8f034b6b2dbc4f42ec4281cf2082}{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+W\+I\+D\+T\+H}~28
+\begin{DoxyCompactList}\small\item\em image width in pixel \end{DoxyCompactList}\item 
+\#define \hyperlink{mnist-utils_8h_a50bba24c079fe75bbae294ba50dbaa32}{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}~28
+\begin{DoxyCompactList}\small\item\em image height in pixel \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_m_n_i_s_t___image_file_header}{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header} \hyperlink{mnist-utils_8h_ab159c22eb44132d35b9c25d1d23875e9}{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header}
+\item 
+typedef struct \hyperlink{struct_m_n_i_s_t___label_file_header}{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header} \hyperlink{mnist-utils_8h_a5445804de6d58a3726ff543cd3cf1cdb}{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header}
+\item 
+typedef struct \hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} \hyperlink{mnist-utils_8h_ac86380de7c7c685ea8e992a27f671239}{M\+N\+I\+S\+T\+\_\+\+Image}
+\item 
+typedef uint8\+\_\+t \hyperlink{mnist-utils_8h_ac563f2337f8e23f2dcc095e41c138bfa}{M\+N\+I\+S\+T\+\_\+\+Label}
+\item 
+typedef struct \hyperlink{struct_vector}{Vector} \hyperlink{mnist-utils_8h_a3feb986d187bdc63289fddab34c9cca0}{Vector}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\+I\+L\+E $\ast$ \hyperlink{mnist-utils_8h_a8a5ef24b830e1a8f15a080db2ab8bb12}{open\+M\+N\+I\+S\+T\+Image\+File} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Read M\+N\+I\+S\+T I\+M\+A\+G\+E file header. \end{DoxyCompactList}\item 
+F\+I\+L\+E $\ast$ \hyperlink{mnist-utils_8h_a443abebe82519f810aeb2cb226d4bc99}{open\+M\+N\+I\+S\+T\+Label\+File} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Read M\+N\+I\+S\+T label file header. \end{DoxyCompactList}\item 
+\hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} \hyperlink{mnist-utils_8h_a0076b10c59220ac7cbf26d0c79b330d0}{get\+Image} (F\+I\+L\+E $\ast$image\+File)
+\begin{DoxyCompactList}\small\item\em Returns the next image in given M\+N\+I\+S\+T image file. \end{DoxyCompactList}\item 
+\hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} \hyperlink{mnist-utils_8h_aee2b09d74a09167a2a9e2e502ee417b8}{get\+Image\+By\+Position} (F\+I\+L\+E $\ast$image\+File, int position)
+\item 
+\hyperlink{mnist-utils_8h_ac563f2337f8e23f2dcc095e41c138bfa}{M\+N\+I\+S\+T\+\_\+\+Label} \hyperlink{mnist-utils_8h_ae38097965d1c8edf5b054aee0adafe0d}{get\+Label} (F\+I\+L\+E $\ast$label\+File)
+\begin{DoxyCompactList}\small\item\em Returns the next label in given M\+N\+I\+S\+T label file. \end{DoxyCompactList}\item 
+\hyperlink{mnist-utils_8h_ac563f2337f8e23f2dcc095e41c138bfa}{M\+N\+I\+S\+T\+\_\+\+Label} \hyperlink{mnist-utils_8h_a07653e83b31f5347c3a38d502ce0fcf6}{get\+Label\+By\+Position} (F\+I\+L\+E $\ast$label\+File, int position)
+\item 
+\hyperlink{struct_vector}{Vector} $\ast$ \hyperlink{mnist-utils_8h_a30f07d837cc0a1091e998ca7cddeb2f4}{get\+Vector\+From\+Image} (\hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} $\ast$img)
+\begin{DoxyCompactList}\small\item\em Returns a \hyperlink{struct_vector}{Vector} holding the image pixels of a given M\+N\+I\+S\+T image. \end{DoxyCompactList}\item 
+int \hyperlink{mnist-utils_8h_a809b5e203ded6cda3999459a9a7c39b6}{get\+Standard\+Digit\+Pixel} (int num, int pixel\+Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utitlies for handling the M\+N\+I\+S\+T files. 
+
+\begin{DoxySeeAlso}{See also}
+\href{http://yann.lecun.com/exdb/mnist/}{\tt http\+://yann.\+lecun.\+com/exdb/mnist/} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Matt Lind 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+July 2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mnist-utils_8h_a50bba24c079fe75bbae294ba50dbaa32}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T~28}\label{mnist-utils_8h_a50bba24c079fe75bbae294ba50dbaa32}
+
+
+image height in pixel 
+
+\hypertarget{mnist-utils_8h_afa9a8f034b6b2dbc4f42ec4281cf2082}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+W\+I\+D\+T\+H}}
+\index{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+W\+I\+D\+T\+H}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+W\+I\+D\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+I\+M\+G\+\_\+\+W\+I\+D\+T\+H~28}\label{mnist-utils_8h_afa9a8f034b6b2dbc4f42ec4281cf2082}
+
+
+image width in pixel 
+
+\hypertarget{mnist-utils_8h_a4fc27b25f2ac15c55c99bdf4c59f2410}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S@{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}}
+\index{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S@{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S~10000}\label{mnist-utils_8h_a4fc27b25f2ac15c55c99bdf4c59f2410}
+
+
+number of images+labels in the T\+E\+S\+T file/s 
+
+\hypertarget{mnist-utils_8h_a0ea148c64cbba94b2d074a069acfd121}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S@{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}}
+\index{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S@{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+I\+M\+A\+G\+E\+S~60000}\label{mnist-utils_8h_a0ea148c64cbba94b2d074a069acfd121}
+
+
+number of images+labels in the T\+R\+A\+I\+N file/s 
+
+\hypertarget{mnist-utils_8h_ac88cc92111215fbe06eb9918d43f1e00}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}}
+\index{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/t10k-\/images-\/idx3-\/ubyte\char`\"{}}\label{mnist-utils_8h_ac88cc92111215fbe06eb9918d43f1e00}
+
+
+M\+N\+I\+S\+T image testing file in the data folder. 
+
+\hypertarget{mnist-utils_8h_ab5fd6cc8cfbb6c18e24e24e046816f50}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}}
+\index{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+T\+E\+S\+T\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/t10k-\/labels-\/idx1-\/ubyte\char`\"{}}\label{mnist-utils_8h_ab5fd6cc8cfbb6c18e24e24e046816f50}
+
+
+M\+N\+I\+S\+T label testing file in the data folder. 
+
+\hypertarget{mnist-utils_8h_ad46661079c809c87a6417a2831b1f33a}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}}
+\index{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+I\+M\+A\+G\+E\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/train-\/images-\/idx3-\/ubyte\char`\"{}}\label{mnist-utils_8h_ad46661079c809c87a6417a2831b1f33a}
+
+
+M\+N\+I\+S\+T image training file in the data folder. 
+
+\hypertarget{mnist-utils_8h_a37971d2433c703aebccf946f2cf1a10a}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}}
+\index{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E@{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+N\+I\+S\+T\+\_\+\+T\+R\+A\+I\+N\+I\+N\+G\+\_\+\+S\+E\+T\+\_\+\+L\+A\+B\+E\+L\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E~\char`\"{}/Users/mlind/Coding/Github/mnist-\/cvnn/data/train-\/labels-\/idx1-\/ubyte\char`\"{}}\label{mnist-utils_8h_a37971d2433c703aebccf946f2cf1a10a}
+
+
+M\+N\+I\+S\+T label training file in the data folder. 
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{mnist-utils_8h_ac86380de7c7c685ea8e992a27f671239}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+Image@{M\+N\+I\+S\+T\+\_\+\+Image}}
+\index{M\+N\+I\+S\+T\+\_\+\+Image@{M\+N\+I\+S\+T\+\_\+\+Image}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+Image}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf M\+N\+I\+S\+T\+\_\+\+Image} {\bf M\+N\+I\+S\+T\+\_\+\+Image}}\label{mnist-utils_8h_ac86380de7c7c685ea8e992a27f671239}
+\hypertarget{mnist-utils_8h_ab159c22eb44132d35b9c25d1d23875e9}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header@{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header}}
+\index{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header@{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header} {\bf M\+N\+I\+S\+T\+\_\+\+Image\+File\+Header}}\label{mnist-utils_8h_ab159c22eb44132d35b9c25d1d23875e9}
+\hypertarget{mnist-utils_8h_ac563f2337f8e23f2dcc095e41c138bfa}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+Label@{M\+N\+I\+S\+T\+\_\+\+Label}}
+\index{M\+N\+I\+S\+T\+\_\+\+Label@{M\+N\+I\+S\+T\+\_\+\+Label}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+Label}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t {\bf M\+N\+I\+S\+T\+\_\+\+Label}}\label{mnist-utils_8h_ac563f2337f8e23f2dcc095e41c138bfa}
+\hypertarget{mnist-utils_8h_a5445804de6d58a3726ff543cd3cf1cdb}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header@{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header}}
+\index{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header@{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header} {\bf M\+N\+I\+S\+T\+\_\+\+Label\+File\+Header}}\label{mnist-utils_8h_a5445804de6d58a3726ff543cd3cf1cdb}
+\hypertarget{mnist-utils_8h_a3feb986d187bdc63289fddab34c9cca0}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!Vector@{Vector}}
+\index{Vector@{Vector}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Vector} {\bf Vector}}\label{mnist-utils_8h_a3feb986d187bdc63289fddab34c9cca0}
+
+
+\subsection{Function Documentation}
+\hypertarget{mnist-utils_8h_a0076b10c59220ac7cbf26d0c79b330d0}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!get\+Image@{get\+Image}}
+\index{get\+Image@{get\+Image}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{get\+Image(\+F\+I\+L\+E $\ast$image\+File)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Image} get\+Image (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{image\+File}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_a0076b10c59220ac7cbf26d0c79b330d0}
+
+
+Returns the next image in given M\+N\+I\+S\+T image file. 
+
+Returns the next image in the given M\+N\+I\+S\+T image file \hypertarget{mnist-utils_8h_aee2b09d74a09167a2a9e2e502ee417b8}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!get\+Image\+By\+Position@{get\+Image\+By\+Position}}
+\index{get\+Image\+By\+Position@{get\+Image\+By\+Position}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{get\+Image\+By\+Position(\+F\+I\+L\+E $\ast$image\+File, int position)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Image} get\+Image\+By\+Position (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{image\+File, }
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_aee2b09d74a09167a2a9e2e502ee417b8}
+\hypertarget{mnist-utils_8h_ae38097965d1c8edf5b054aee0adafe0d}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!get\+Label@{get\+Label}}
+\index{get\+Label@{get\+Label}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{get\+Label(\+F\+I\+L\+E $\ast$label\+File)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Label} get\+Label (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{label\+File}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_ae38097965d1c8edf5b054aee0adafe0d}
+
+
+Returns the next label in given M\+N\+I\+S\+T label file. 
+
+Returns the next label in the given M\+N\+I\+S\+T label file \hypertarget{mnist-utils_8h_a07653e83b31f5347c3a38d502ce0fcf6}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!get\+Label\+By\+Position@{get\+Label\+By\+Position}}
+\index{get\+Label\+By\+Position@{get\+Label\+By\+Position}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{get\+Label\+By\+Position(\+F\+I\+L\+E $\ast$label\+File, int position)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+N\+I\+S\+T\+\_\+\+Label} get\+Label\+By\+Position (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{label\+File, }
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_a07653e83b31f5347c3a38d502ce0fcf6}
+\hypertarget{mnist-utils_8h_a809b5e203ded6cda3999459a9a7c39b6}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!get\+Standard\+Digit\+Pixel@{get\+Standard\+Digit\+Pixel}}
+\index{get\+Standard\+Digit\+Pixel@{get\+Standard\+Digit\+Pixel}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{get\+Standard\+Digit\+Pixel(int num, int pixel\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Standard\+Digit\+Pixel (
+\begin{DoxyParamCaption}
+\item[{int}]{num, }
+\item[{int}]{pixel\+Id}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_a809b5e203ded6cda3999459a9a7c39b6}
+\hypertarget{mnist-utils_8h_a30f07d837cc0a1091e998ca7cddeb2f4}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!get\+Vector\+From\+Image@{get\+Vector\+From\+Image}}
+\index{get\+Vector\+From\+Image@{get\+Vector\+From\+Image}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{get\+Vector\+From\+Image(\+M\+N\+I\+S\+T\+\_\+\+Image $\ast$img)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$\ast$ get\+Vector\+From\+Image (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+N\+I\+S\+T\+\_\+\+Image} $\ast$}]{img}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_a30f07d837cc0a1091e998ca7cddeb2f4}
+
+
+Returns a \hyperlink{struct_vector}{Vector} holding the image pixels of a given M\+N\+I\+S\+T image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & A pointer to a M\+N\+I\+S\+T image \\
+\hline
+\end{DoxyParams}
+\hypertarget{mnist-utils_8h_a8a5ef24b830e1a8f15a080db2ab8bb12}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!open\+M\+N\+I\+S\+T\+Image\+File@{open\+M\+N\+I\+S\+T\+Image\+File}}
+\index{open\+M\+N\+I\+S\+T\+Image\+File@{open\+M\+N\+I\+S\+T\+Image\+File}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{open\+M\+N\+I\+S\+T\+Image\+File(char $\ast$file\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ open\+M\+N\+I\+S\+T\+Image\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Name}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_a8a5ef24b830e1a8f15a080db2ab8bb12}
+
+
+Read M\+N\+I\+S\+T I\+M\+A\+G\+E file header. 
+
+\begin{DoxySeeAlso}{See also}
+\href{http://yann.lecun.com/exdb/mnist/}{\tt http\+://yann.\+lecun.\+com/exdb/mnist/} for definition details
+\end{DoxySeeAlso}
+Open M\+N\+I\+S\+T image file and read header info by reading the header info, the read pointer is moved to the position of the 1st I\+M\+A\+G\+E \hypertarget{mnist-utils_8h_a443abebe82519f810aeb2cb226d4bc99}{}\index{mnist-\/utils.\+h@{mnist-\/utils.\+h}!open\+M\+N\+I\+S\+T\+Label\+File@{open\+M\+N\+I\+S\+T\+Label\+File}}
+\index{open\+M\+N\+I\+S\+T\+Label\+File@{open\+M\+N\+I\+S\+T\+Label\+File}!mnist-\/utils.\+h@{mnist-\/utils.\+h}}
+\subsubsection[{open\+M\+N\+I\+S\+T\+Label\+File(char $\ast$file\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+L\+E$\ast$ open\+M\+N\+I\+S\+T\+Label\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\+Name}
+\end{DoxyParamCaption}
+)}\label{mnist-utils_8h_a443abebe82519f810aeb2cb226d4bc99}
+
+
+Read M\+N\+I\+S\+T label file header. 
+
+\begin{DoxySeeAlso}{See also}
+\href{http://yann.lecun.com/exdb/mnist/}{\tt http\+://yann.\+lecun.\+com/exdb/mnist/} for definition details
+\end{DoxySeeAlso}
+Open M\+N\+I\+S\+T label file and read header info by reading the header info, the read pointer is moved to the position of the 1st L\+A\+B\+E\+L 

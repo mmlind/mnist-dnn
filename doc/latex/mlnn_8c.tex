@@ -1,0 +1,1006 @@
+\hypertarget{mlnn_8c}{}\section{mlnn.\+c File Reference}
+\label{mlnn_8c}\index{mlnn.\+c@{mlnn.\+c}}
+
+
+Neural network functionality for a multi-\/layer, convolutional neural network.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}util/mnist-\/utils.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util/screen.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mlnn.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mlnn_8c_a494da497b677da05f7a302152fafd248}{O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E}~-\/1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mlnn_8c_aea9b074d771e7fc536af05f468c277c6}{get\+Layer\+Node\+Count} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the number of nodes in a layer. \end{DoxyCompactList}\item 
+int \hyperlink{mlnn_8c_aa794952814e98d37851b303e17c60ef6}{get\+Layer\+Column\+Count} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the number of columns in a layer. \end{DoxyCompactList}\item 
+int \hyperlink{mlnn_8c_a8ed146259dc505f7ef7b8f04881ee6fd}{get\+Node\+Backward\+Connection\+Count} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the number of backward connections of a N\+O\+D\+E (not of a layer) \end{DoxyCompactList}\item 
+int \hyperlink{mlnn_8c_a7b86acbe777bfb0967fa143cd4409d00}{get\+Node\+Forward\+Connection\+Count} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the number of forward connections of a N\+O\+D\+E (not of a layer) \end{DoxyCompactList}\item 
+int \hyperlink{mlnn_8c_aec138a1288ed75be554026e0dd5fbf4e}{get\+Layer\+Weight\+Count} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the number of weights for a layer (based on a given layer definition) \end{DoxyCompactList}\item 
+int \hyperlink{mlnn_8c_a0cbce462165eb8f47736c942765b3f38}{get\+Column\+Count} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the number of columns in a layer (based on a give layer definition) \end{DoxyCompactList}\item 
+\hyperlink{mlnn_8h_a7a4b57eb083e961719b18441711d8ee5}{Byte\+Size} \hyperlink{mlnn_8c_a0c35bcf728651f05c3461d89a04144d6}{get\+Layer\+Weight\+Block\+Size} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the memory (byte) size of the weights block for a specific layer. \end{DoxyCompactList}\item 
+\hyperlink{mlnn_8h_a7a4b57eb083e961719b18441711d8ee5}{Byte\+Size} \hyperlink{mlnn_8c_a6f53bda77b00d02e5ee244a5bf80d571}{get\+Network\+Weight\+Block\+Size} (int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\begin{DoxyCompactList}\small\item\em Returns the memory size of the network\textquotesingle{}s weights block based on a given array of layer definitions. \end{DoxyCompactList}\item 
+\hyperlink{mlnn_8h_a7a4b57eb083e961719b18441711d8ee5}{Byte\+Size} \hyperlink{mlnn_8c_a08566a3881abbe4047eb9329b08355a1}{get\+Node\+Size} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the memory (byte) size of a node based on a given layer definition. \end{DoxyCompactList}\item 
+\hyperlink{mlnn_8h_a7a4b57eb083e961719b18441711d8ee5}{Byte\+Size} \hyperlink{mlnn_8c_af6d6765283218ff82291d62935de17e4}{get\+Column\+Size} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the memory (byte) size of a column based on a given layer definition. \end{DoxyCompactList}\item 
+\hyperlink{mlnn_8h_a7a4b57eb083e961719b18441711d8ee5}{Byte\+Size} \hyperlink{mlnn_8c_a793c21439d5b143c92b5aaa4ffc3f947}{get\+Layer\+Size} (\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Def)
+\begin{DoxyCompactList}\small\item\em Returns the memory (byte) size of a specific layer based on a given layer definition. \end{DoxyCompactList}\item 
+\hyperlink{mlnn_8h_a7a4b57eb083e961719b18441711d8ee5}{Byte\+Size} \hyperlink{mlnn_8c_a22291d5113dee2df10981d3ac398fda8}{get\+Network\+Size} (int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\begin{DoxyCompactList}\small\item\em Returns the memory size of the network based on an array of layer definitions and weight\+Block\+Size. \end{DoxyCompactList}\item 
+\hyperlink{struct_node}{Node} $\ast$ \hyperlink{mlnn_8c_ac71a3e5c9908ba6d1a5d4cbb9a1da62e}{get\+Column\+Node} (\hyperlink{struct_column}{Column} $\ast$column, int node\+Id)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a specific node defined by its id from a given layer. \end{DoxyCompactList}\item 
+\hyperlink{struct_column}{Column} $\ast$ \hyperlink{mlnn_8c_a17a5338950c6985c0232440b529b05d9}{get\+Layer\+Column} (\hyperlink{struct_layer}{Layer} $\ast$layer, int column\+Id)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a specific column defined by its id. \end{DoxyCompactList}\item 
+\hyperlink{struct_node}{Node} $\ast$ \hyperlink{mlnn_8c_a4db7db0fe79bde079c77cdf70d66047d}{get\+Network\+Node} (\hyperlink{struct_layer}{Layer} $\ast$layer, int column\+Id, int node\+Id)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a specific node defined by its layer, column and node id. \end{DoxyCompactList}\item 
+\hyperlink{struct_layer}{Layer} $\ast$ \hyperlink{mlnn_8c_a2c60aaa5ced3776b44d804530b96d684}{get\+Network\+Layer} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Id)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a specific layer defined by its id from the network. \end{DoxyCompactList}\item 
+\hyperlink{mlnn_8h_a5b53e5716aeadbb040a52c9c8c124c74}{Weight} \hyperlink{mlnn_8c_a6c96db47579c05ca68eb580627f075cf}{get\+Derivative} (\hyperlink{mlnn_8h_a5b53e5716aeadbb040a52c9c8c124c74}{Weight} out\+Val, \hyperlink{mlnn_8h_a56b0419d049f390f332329193f952b41}{Act\+Fct\+Type} act\+Type)
+\begin{DoxyCompactList}\small\item\em Returns the result of applying the given output\+Value to the derivate of the activation function. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a4140a0839a2ef1ba88b90ba340b41090}{update\+Node\+Weights} (\hyperlink{struct_node}{Node} $\ast$update\+Node, double learning\+Rate)
+\begin{DoxyCompactList}\small\item\em Updates a node\textquotesingle{}s weights based on given learning rate. \end{DoxyCompactList}\item 
+double \hyperlink{mlnn_8c_a306d895940d6ff9c2f4a0403ff2ccee3}{calc\+Node\+Error} (\hyperlink{struct_node}{Node} $\ast$this\+Node)
+\begin{DoxyCompactList}\small\item\em Returns the total error of a node by adding up all the partial errors from the following layer. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a0e0365337d14604a9997ef50adf40d1e}{back\+Propagate\+Layer} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Id)
+\begin{DoxyCompactList}\small\item\em Back propagates network error to hidden layer. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a83887b62ebfd3e1a850cf1a4af109cd8}{back\+Propagate\+Output\+Layer} (\hyperlink{struct_network}{Network} $\ast$nn, int target\+Classification)
+\begin{DoxyCompactList}\small\item\em Calculates the error (difference of desired classification vs actual node output) of each output node and back propagates the error in the output layer to the previous layer. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_acf50ce1c1d143d737a0e7e9fa7faac4f}{back\+Propagate\+Network} (\hyperlink{struct_network}{Network} $\ast$nn, int target\+Classification)
+\begin{DoxyCompactList}\small\item\em Backpropagates the output nodes\textquotesingle{} errors from output layer backwards to first layer. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a5e8e1d7b9e01161fbe06cc9f08aafca1}{activate\+Node} (\hyperlink{struct_node}{Node} $\ast$node, \hyperlink{mlnn_8h_a56b0419d049f390f332329193f952b41}{Act\+Fct\+Type} act\+Type)
+\begin{DoxyCompactList}\small\item\em Performs an activiation function to a specified node. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a766a4329ca60f56b46872ac1ef641ec5}{calc\+Node\+Output} (\hyperlink{struct_node}{Node} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Calculates the output value of a specified node. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_aa057b6a28d523972c7a38b98302cad2c}{calc\+Network\+Layer} (\hyperlink{struct_layer}{Layer} $\ast$layer)
+\begin{DoxyCompactList}\small\item\em Calculates the output values of all nodes of a given layer. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_ab3aab148c4bc1bc374291e64edbf1e2d}{feed\+Forward\+Network} (\hyperlink{struct_network}{Network} $\ast$nn)
+\begin{DoxyCompactList}\small\item\em Feeds forward (=calculating a node\textquotesingle{}s output value and applying an activation function) layer by layer. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a498c47a729c9e9a8e3996dc4cc01a257}{feed\+Input} (\hyperlink{struct_network}{Network} $\ast$nn, \hyperlink{struct_vector}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Feeds some \hyperlink{struct_vector}{Vector} data into the I\+N\+P\+U\+T layer of the network. \end{DoxyCompactList}\item 
+int \hyperlink{mlnn_8c_a2594878532b97d3e8581dcde4da0ffdd}{get\+Network\+Classification} (\hyperlink{struct_network}{Network} $\ast$nn)
+\begin{DoxyCompactList}\small\item\em Returns the network\textquotesingle{}s classification of the input image by choosing the node with the hightest output. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a5a26cfa36bff4cdbcd279508a39b44b4}{init\+Network\+Weights} (\hyperlink{struct_network}{Network} $\ast$nn)
+\item 
+int \hyperlink{mlnn_8c_ab3d9688a88ad92eb0eda60f0c57f0db9}{calc\+Stride} (int tgt\+Width, int filter, int src\+Width)
+\begin{DoxyCompactList}\small\item\em Calculates the stride (number of nodes/columns that are skipped) in a convolutional kernel. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_ac8067b0a998c5d56f43059af6ad93651}{calc\+Filter\+Column\+Ids} (\hyperlink{struct_layer}{Layer} $\ast$src\+Layer, int src\+Col\+Id, \hyperlink{struct_layer}{Layer} $\ast$tgt\+Layer, \hyperlink{struct_vector}{Vector} $\ast$filter\+Col\+Ids)
+\begin{DoxyCompactList}\small\item\em Returns an array of F\+I\+L\+T\+E\+R-\/many column ids representing a moving x$\ast$y kernel window in the target layer. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_acfb20b4438bf1c9594706fb000753b71}{init\+Network\+Backward\+Connections\+Conv\+Node} (\hyperlink{struct_node}{Node} $\ast$node, int src\+Level, \hyperlink{mlnn_8h_a5b53e5716aeadbb040a52c9c8c124c74}{Weight} $\ast$src\+Layer\+Weight\+Ptr, \hyperlink{struct_layer}{Layer} $\ast$target\+Layer, \hyperlink{struct_vector}{Vector} $\ast$filter\+Col\+Ids, \hyperlink{mlnn_8h_a5b53e5716aeadbb040a52c9c8c124c74}{Weight} $\ast$null\+Weight)
+\begin{DoxyCompactList}\small\item\em Initializes a single convolutional node by setting its connections weights pointers. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a53fd605a32d4c375d73f72d0f23584b5}{init\+Network\+Backward\+Connections\+F\+C\+Node} (\hyperlink{struct_node}{Node} $\ast$this\+Node, \hyperlink{struct_layer}{Layer} $\ast$prev\+Layer, \hyperlink{mlnn_8h_a5b53e5716aeadbb040a52c9c8c124c74}{Weight} $\ast$node\+Weight\+Ptr)
+\begin{DoxyCompactList}\small\item\em Initializes a node of a normal, fully connected node. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a3c4b1174c9c2a9c2deb35870af493210}{init\+Network\+Forward\+Connections\+Any\+Node} (\hyperlink{struct_node}{Node} $\ast$this\+Node, \hyperlink{struct_layer}{Layer} $\ast$next\+Layer)
+\item 
+void \hyperlink{mlnn_8c_af94a8a48b0b4385887b3e0cf2d5eaa89}{init\+Network\+Forward\+Connections} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Id)
+\item 
+\hyperlink{struct_vector}{Vector} $\ast$ \hyperlink{mlnn_8c_aaf1c0bc7a8f6fa060d9601f3eafc00de}{create\+Filter\+Column\+Ids} (\hyperlink{struct_layer}{Layer} $\ast$this\+Layer, int column\+Id, \hyperlink{struct_layer}{Layer} $\ast$prev\+Layer)
+\begin{DoxyCompactList}\small\item\em Creates and returns an array of F\+I\+L\+T\+E\+R-\/many column ids representing a moving x$\ast$y kernel window. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a12f1992d0aaec1e32c16f5100a7ca0c8}{set\+Network\+Node\+Defaults} (\hyperlink{struct_layer}{Layer} $\ast$this\+Layer, \hyperlink{struct_column}{Column} $\ast$column, \hyperlink{struct_node}{Node} $\ast$node, \hyperlink{mlnn_8h_a5b53e5716aeadbb040a52c9c8c124c74}{Weight} $\ast$null\+Weight)
+\begin{DoxyCompactList}\small\item\em Sets default values for a node during its initialization. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_ab4f85c53c92f9ca22d1e8a346e45caeb}{init\+Network\+Nodes} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Id, int column\+Id)
+\begin{DoxyCompactList}\small\item\em Initializes the nodes in a given network column. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a484392de1623a3a409dcae746cd5adc7}{init\+Network\+Columns} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Id)
+\begin{DoxyCompactList}\small\item\em Initializes a network layer\textquotesingle{}s column/node structure and sets detault values. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a7492680db02bd031d9ffdadd29f0b6ae}{init\+Network\+Layer} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Id, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\begin{DoxyCompactList}\small\item\em Initializes a network layer by creating the column/node structure and sets detault values. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_ac1d055950155f3889b1ec73ae07f7eb7}{init\+Network} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\item 
+void \hyperlink{mlnn_8c_aaf0aa6a4cb942e0b404e09871bed0834}{set\+Network\+Defaults} (\hyperlink{struct_network}{Network} $\ast$nn, int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs, \hyperlink{mlnn_8h_a7a4b57eb083e961719b18441711d8ee5}{Byte\+Size} net\+Size)
+\begin{DoxyCompactList}\small\item\em Sets the network\textquotesingle{}s default values for size, layer\+Count,. \end{DoxyCompactList}\item 
+\hyperlink{struct_network}{Network} $\ast$ \hyperlink{mlnn_8c_a4afc5c41840ff31ff54eeedca9023501}{create\+Network} (int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\begin{DoxyCompactList}\small\item\em Creates the neural network based on a given array of layer definitions. \end{DoxyCompactList}\item 
+bool \hyperlink{mlnn_8c_abd6da46d3b1bfb56a10bc72bd71f1140}{is\+Valid\+Network\+Definition} (int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\begin{DoxyCompactList}\small\item\em Validates the network definition based on a number of rules and best practices. \end{DoxyCompactList}\item 
+void \hyperlink{mlnn_8c_a2b18eda5fae1eb2fec1b0ca56f05dbf6}{set\+Layer\+Definition\+Defaults} (int layer\+Count, \hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$layer\+Defs)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to an array of a variable number of layer definitions. \end{DoxyCompactList}\item 
+\hyperlink{struct_layer_definition}{Layer\+Definition} $\ast$ \hyperlink{mlnn_8c_af5fe916125b608a79e7cf14cdb443c25}{set\+Layer\+Definitions} (int layer\+Count,...)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to an array of a variable number of layer definitions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Neural network functionality for a multi-\/layer, convolutional neural network. 
+
+\begin{DoxyAuthor}{Author}
+Matt Lind 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+October 2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mlnn_8c_a494da497b677da05f7a302152fafd248}{}\index{mlnn.\+c@{mlnn.\+c}!O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E@{O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E}}
+\index{O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E@{O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E~-\/1}\label{mlnn_8c_a494da497b677da05f7a302152fafd248}
+
+
+\subsection{Function Documentation}
+\hypertarget{mlnn_8c_a5e8e1d7b9e01161fbe06cc9f08aafca1}{}\index{mlnn.\+c@{mlnn.\+c}!activate\+Node@{activate\+Node}}
+\index{activate\+Node@{activate\+Node}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{activate\+Node(\+Node $\ast$node, Act\+Fct\+Type act\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}void activate\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node, }
+\item[{{\bf Act\+Fct\+Type}}]{act\+Type}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a5e8e1d7b9e01161fbe06cc9f08aafca1}
+
+
+Performs an activiation function to a specified node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Pointer to the node that is to be \char`\"{}activated\char`\"{} \\
+\hline
+{\em act\+Type} & The type of activation function to be applied (S\+I\+G\+M\+O\+I\+D/\+T\+A\+N\+H/\+R\+E\+L\+U) \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a0e0365337d14604a9997ef50adf40d1e}{}\index{mlnn.\+c@{mlnn.\+c}!back\+Propagate\+Layer@{back\+Propagate\+Layer}}
+\index{back\+Propagate\+Layer@{back\+Propagate\+Layer}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{back\+Propagate\+Layer(\+Network $\ast$nn, int layer\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}void back\+Propagate\+Layer (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a0e0365337d14604a9997ef50adf40d1e}
+
+
+Back propagates network error to hidden layer. 
+
+Backpropagating a layer means looping through all its nodes\textquotesingle{} connections, and update the error\+Sum attached to the T\+A\+R\+G\+E\+T node (=previous layer) of each connection i.\+e. when \char`\"{}backpropagating\char`\"{} layer x, then the error\+Sum of the nodes of layer x-\/1 are calculated 
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the neural network \\
+\hline
+{\em layer\+Id} & The id of the layer that is to be back propagated \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_acf50ce1c1d143d737a0e7e9fa7faac4f}{}\index{mlnn.\+c@{mlnn.\+c}!back\+Propagate\+Network@{back\+Propagate\+Network}}
+\index{back\+Propagate\+Network@{back\+Propagate\+Network}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{back\+Propagate\+Network(\+Network $\ast$nn, int target\+Classification)}]{\setlength{\rightskip}{0pt plus 5cm}void back\+Propagate\+Network (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{target\+Classification}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_acf50ce1c1d143d737a0e7e9fa7faac4f}
+
+
+Backpropagates the output nodes\textquotesingle{} errors from output layer backwards to first layer. 
+
+Back propagates network error from output layer to hidden layer.
+
+The network\textquotesingle{}s backpropagation proceeds in 2 steps\+:
+
+
+\begin{DoxyEnumerate}
+\item C\+A\+L\+C\+U\+L\+A\+T\+E O\+U\+T\+P\+U\+T N\+O\+D\+E\+S\textquotesingle{} E\+R\+R\+O\+R\+S a. Calculate the errorsums in all output cells based on the target\+Classification
+\item B\+A\+C\+K\+P\+R\+O\+P\+A\+G\+A\+T\+E E\+A\+C\+H L\+A\+Y\+E\+R a. Update the nodes weights based on actual output and accumulated errorsum b. Calculate the errorsums in all T\+A\+R\+G\+E\+T cells based on errorsum in this layer (calculated in 3)
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the neural network \\
+\hline
+{\em target\+Classification} & The correct/desired classification (=label) of this recognition/image \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a83887b62ebfd3e1a850cf1a4af109cd8}{}\index{mlnn.\+c@{mlnn.\+c}!back\+Propagate\+Output\+Layer@{back\+Propagate\+Output\+Layer}}
+\index{back\+Propagate\+Output\+Layer@{back\+Propagate\+Output\+Layer}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{back\+Propagate\+Output\+Layer(\+Network $\ast$nn, int target\+Classification)}]{\setlength{\rightskip}{0pt plus 5cm}void back\+Propagate\+Output\+Layer (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{target\+Classification}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a83887b62ebfd3e1a850cf1a4af109cd8}
+
+
+Calculates the error (difference of desired classification vs actual node output) of each output node and back propagates the error in the output layer to the previous layer. 
+
+The error is calculated based on the given target classification (= image label) and is stored in each output node so that it can be backpropagated later 
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the neural network \\
+\hline
+{\em target\+Classification} & The correct/desired classification (=label) of this recognition/image \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_ac8067b0a998c5d56f43059af6ad93651}{}\index{mlnn.\+c@{mlnn.\+c}!calc\+Filter\+Column\+Ids@{calc\+Filter\+Column\+Ids}}
+\index{calc\+Filter\+Column\+Ids@{calc\+Filter\+Column\+Ids}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{calc\+Filter\+Column\+Ids(\+Layer $\ast$src\+Layer, int src\+Col\+Id, Layer $\ast$tgt\+Layer, Vector $\ast$filter\+Col\+Ids)}]{\setlength{\rightskip}{0pt plus 5cm}void calc\+Filter\+Column\+Ids (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer} $\ast$}]{src\+Layer, }
+\item[{int}]{src\+Col\+Id, }
+\item[{{\bf Layer} $\ast$}]{tgt\+Layer, }
+\item[{{\bf Vector} $\ast$}]{filter\+Col\+Ids}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_ac8067b0a998c5d56f43059af6ad93651}
+
+
+Returns an array of F\+I\+L\+T\+E\+R-\/many column ids representing a moving x$\ast$y kernel window in the target layer. 
+
+The node ids are calculated relative to the node\+Id of the parent/calling feature map. The size of the moving filter/frame is defined in the parent/calling layer\textquotesingle{}s filter width/height values. The size of the parent/calling feature map is bigger than the target feature map, i.\+e. each x\textquotesingle{}th (2nd) node, horizontally as well as vertically, is skipped. If a filter\textquotesingle{}s target node would be located outside of the target feature map, -\/1 is assigned as an id. Later all nodes pointing to a -\/1 node get assigned a weight pointer to the network\textquotesingle{}s \char`\"{}nn-\/$>$null\+Weight\char`\"{}, so that they are still dereferencable. (Because N\+U\+L\+L pointers would cause an exception/termination.) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Layer} & A pointer to the convolutional layer (S\+O\+U\+R\+C\+E) that creates connections to its previous layer \\
+\hline
+{\em src\+Col\+Id} & The id of the column in the convolutional (S\+O\+U\+R\+C\+E) layer that creates the connections \\
+\hline
+{\em tgt\+Layer} & A pointer to the T\+A\+R\+G\+E\+T layer to which the convolutional/source layer connects to \\
+\hline
+{\em filter\+Col\+Ids} & A pointer to the vector which will return the list of filter ids \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_aa057b6a28d523972c7a38b98302cad2c}{}\index{mlnn.\+c@{mlnn.\+c}!calc\+Network\+Layer@{calc\+Network\+Layer}}
+\index{calc\+Network\+Layer@{calc\+Network\+Layer}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{calc\+Network\+Layer(\+Layer $\ast$layer)}]{\setlength{\rightskip}{0pt plus 5cm}void calc\+Network\+Layer (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer} $\ast$}]{layer}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_aa057b6a28d523972c7a38b98302cad2c}
+
+
+Calculates the output values of all nodes of a given layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer} & Pointer to the layer whose nodes are to be activated/calculated \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a306d895940d6ff9c2f4a0403ff2ccee3}{}\index{mlnn.\+c@{mlnn.\+c}!calc\+Node\+Error@{calc\+Node\+Error}}
+\index{calc\+Node\+Error@{calc\+Node\+Error}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{calc\+Node\+Error(\+Node $\ast$this\+Node)}]{\setlength{\rightskip}{0pt plus 5cm}double calc\+Node\+Error (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{this\+Node}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a306d895940d6ff9c2f4a0403ff2ccee3}
+
+
+Returns the total error of a node by adding up all the partial errors from the following layer. 
+
+To speed up back propagation the partial errors are referenced via the node\textquotesingle{}s forward connections 
+\begin{DoxyParams}{Parameters}
+{\em this\+Node} & A pointer to the node whose (to be back propagated) error is to be calculated \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a766a4329ca60f56b46872ac1ef641ec5}{}\index{mlnn.\+c@{mlnn.\+c}!calc\+Node\+Output@{calc\+Node\+Output}}
+\index{calc\+Node\+Output@{calc\+Node\+Output}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{calc\+Node\+Output(\+Node $\ast$node)}]{\setlength{\rightskip}{0pt plus 5cm}void calc\+Node\+Output (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a766a4329ca60f56b46872ac1ef641ec5}
+
+
+Calculates the output value of a specified node. 
+
+Calculates the vector product of a node\textquotesingle{}s weights with the connections\textquotesingle{} target nodes\textquotesingle{} outputs 
+\begin{DoxyParams}{Parameters}
+{\em node} & Pointer to the node whose output is to be calculated \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_ab3d9688a88ad92eb0eda60f0c57f0db9}{}\index{mlnn.\+c@{mlnn.\+c}!calc\+Stride@{calc\+Stride}}
+\index{calc\+Stride@{calc\+Stride}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{calc\+Stride(int tgt\+Width, int filter, int src\+Width)}]{\setlength{\rightskip}{0pt plus 5cm}int calc\+Stride (
+\begin{DoxyParamCaption}
+\item[{int}]{tgt\+Width, }
+\item[{int}]{filter, }
+\item[{int}]{src\+Width}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_ab3d9688a88ad92eb0eda60f0c57f0db9}
+
+
+Calculates the stride (number of nodes/columns that are skipped) in a convolutional kernel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tgt\+Width} & Number of columns on the x-\/axis (horizontally) in the T\+A\+R\+G\+E\+T (=previous) layer \\
+\hline
+{\em filter} & Number of columns/nodes on the x-\/axis in a filter window (\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+A\+S\+S\+S\+U\+M\+E\+S W\+I\+D\+T\+H=H\+E\+I\+G\+H\+T!!) 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em src\+Width} & Number of columns on the x-\/axis (horizontally) in the S\+O\+U\+R\+C\+E (=this) layer \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_aaf1c0bc7a8f6fa060d9601f3eafc00de}{}\index{mlnn.\+c@{mlnn.\+c}!create\+Filter\+Column\+Ids@{create\+Filter\+Column\+Ids}}
+\index{create\+Filter\+Column\+Ids@{create\+Filter\+Column\+Ids}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{create\+Filter\+Column\+Ids(\+Layer $\ast$this\+Layer, int column\+Id, Layer $\ast$prev\+Layer)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector}$\ast$ create\+Filter\+Column\+Ids (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer} $\ast$}]{this\+Layer, }
+\item[{int}]{column\+Id, }
+\item[{{\bf Layer} $\ast$}]{prev\+Layer}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_aaf1c0bc7a8f6fa060d9601f3eafc00de}
+
+
+Creates and returns an array of F\+I\+L\+T\+E\+R-\/many column ids representing a moving x$\ast$y kernel window. 
+
+The actual calculation of the target column ids takes place in a subfunction. 
+\begin{DoxyParams}{Parameters}
+{\em this\+Layer} & A pointer to the convolutional layer (S\+O\+U\+R\+C\+E) that creates connections to its previous layer \\
+\hline
+{\em column\+Id} & The id of the column in the source layer \\
+\hline
+{\em prev\+Layer} & A pointer to the P\+R\+E\+V\+I\+O\+U\+S=T\+A\+R\+G\+E\+T layer to which the convolutional/source layer connects to \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a4afc5c41840ff31ff54eeedca9023501}{}\index{mlnn.\+c@{mlnn.\+c}!create\+Network@{create\+Network}}
+\index{create\+Network@{create\+Network}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{create\+Network(int layer\+Count, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Network}$\ast$ create\+Network (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a4afc5c41840ff31ff54eeedca9023501}
+
+
+Creates the neural network based on a given array of layer definitions. 
+
+Creates a reserved memory block for this network based on the given layer definitions, and then initializes this memory with the respective layer/node/connection/weights structure. 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Count} & The number of layer definitions inside the layer-\/definition-\/array (2nd param) \\
+\hline
+{\em layer\+Defs} & A pointer to an array of layer definitions \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_ab3aab148c4bc1bc374291e64edbf1e2d}{}\index{mlnn.\+c@{mlnn.\+c}!feed\+Forward\+Network@{feed\+Forward\+Network}}
+\index{feed\+Forward\+Network@{feed\+Forward\+Network}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{feed\+Forward\+Network(\+Network $\ast$nn)}]{\setlength{\rightskip}{0pt plus 5cm}void feed\+Forward\+Network (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_ab3aab148c4bc1bc374291e64edbf1e2d}
+
+
+Feeds forward (=calculating a node\textquotesingle{}s output value and applying an activation function) layer by layer. 
+
+Feeds input layer values forward to hidden to output layer (calculation and activation fct)
+
+Feeds forward from 2nd=\#1 layer (i.\+e. skips input layer) to output layer 
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the N\+N \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a498c47a729c9e9a8e3996dc4cc01a257}{}\index{mlnn.\+c@{mlnn.\+c}!feed\+Input@{feed\+Input}}
+\index{feed\+Input@{feed\+Input}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{feed\+Input(\+Network $\ast$nn, Vector $\ast$v)}]{\setlength{\rightskip}{0pt plus 5cm}void feed\+Input (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{{\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a498c47a729c9e9a8e3996dc4cc01a257}
+
+
+Feeds some \hyperlink{struct_vector}{Vector} data into the I\+N\+P\+U\+T layer of the network. 
+
+Feeds some \hyperlink{struct_vector}{Vector} data into the I\+N\+P\+U\+T layer of the N\+N.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the neural network \\
+\hline
+{\em v} & A pointer to the vector holding the input values \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a0cbce462165eb8f47736c942765b3f38}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Column\+Count@{get\+Column\+Count}}
+\index{get\+Column\+Count@{get\+Column\+Count}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Column\+Count(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Column\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a0cbce462165eb8f47736c942765b3f38}
+
+
+Returns the number of columns in a layer (based on a give layer definition) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & A pointer to the layer definition for this layer \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_ac71a3e5c9908ba6d1a5d4cbb9a1da62e}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Column\+Node@{get\+Column\+Node}}
+\index{get\+Column\+Node@{get\+Column\+Node}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Column\+Node(\+Column $\ast$column, int node\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ get\+Column\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Column} $\ast$}]{column, }
+\item[{int}]{node\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_ac71a3e5c9908ba6d1a5d4cbb9a1da62e}
+
+
+Returns a pointer to a specific node defined by its id from a given layer. 
+
+The node is retrieved by moving a pointer from this layer\textquotesingle{}s 1st node forward by id$\ast$node\+Size (it is N\+O\+T possible to retrieve a node simply via an array because the actual size of a node depends on its number of connections) 
+\begin{DoxyParams}{Parameters}
+{\em column} & A pointer to the column where this node is located in \\
+\hline
+{\em node\+Id} & The id of the node that is to be returned \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_af6d6765283218ff82291d62935de17e4}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Column\+Size@{get\+Column\+Size}}
+\index{get\+Column\+Size@{get\+Column\+Size}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Column\+Size(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\+Size} get\+Column\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_af6d6765283218ff82291d62935de17e4}
+
+
+Returns the memory (byte) size of a column based on a given layer definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & A pointer to a layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a6c96db47579c05ca68eb580627f075cf}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Derivative(\+Weight out\+Val, Act\+Fct\+Type act\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Weight} get\+Derivative (
+\begin{DoxyParamCaption}
+\item[{{\bf Weight}}]{out\+Val, }
+\item[{{\bf Act\+Fct\+Type}}]{act\+Type}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a6c96db47579c05ca68eb580627f075cf}
+
+
+Returns the result of applying the given output\+Value to the derivate of the activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Val} & Output value that is to be back propagated \\
+\hline
+{\em act\+Type} & The type of activation function that was applied during feed forward (S\+I\+G\+M\+O\+I\+D/\+T\+A\+N\+H/\+R\+E\+L\+U) \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a17a5338950c6985c0232440b529b05d9}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Layer\+Column@{get\+Layer\+Column}}
+\index{get\+Layer\+Column@{get\+Layer\+Column}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Layer\+Column(\+Layer $\ast$layer, int column\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Column}$\ast$ get\+Layer\+Column (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer} $\ast$}]{layer, }
+\item[{int}]{column\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a17a5338950c6985c0232440b529b05d9}
+
+
+Returns a pointer to a specific column defined by its id. 
+
+The column is retrieved by moving a pointer from the layer\textquotesingle{}s 1st column forward (it is N\+O\+T possible to retrieve a column simply via an array because the actual size of each column depends on its number/sizes of nodes and thus is variable 
+\begin{DoxyParams}{Parameters}
+{\em layer} & A pointer to the layer from which to get the column \\
+\hline
+{\em column\+Id} & The id of the column that is to be retrieved/accessed \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_aa794952814e98d37851b303e17c60ef6}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Layer\+Column\+Count@{get\+Layer\+Column\+Count}}
+\index{get\+Layer\+Column\+Count@{get\+Layer\+Column\+Count}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Layer\+Column\+Count(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Layer\+Column\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_aa794952814e98d37851b303e17c60ef6}
+
+
+Returns the number of columns in a layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & Pointer to a layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_aea9b074d771e7fc536af05f468c277c6}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Layer\+Node\+Count@{get\+Layer\+Node\+Count}}
+\index{get\+Layer\+Node\+Count@{get\+Layer\+Node\+Count}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Layer\+Node\+Count(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Layer\+Node\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_aea9b074d771e7fc536af05f468c277c6}
+
+
+Returns the number of nodes in a layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & Pointer to a layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a793c21439d5b143c92b5aaa4ffc3f947}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Layer\+Size@{get\+Layer\+Size}}
+\index{get\+Layer\+Size@{get\+Layer\+Size}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Layer\+Size(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\+Size} get\+Layer\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a793c21439d5b143c92b5aaa4ffc3f947}
+
+
+Returns the memory (byte) size of a specific layer based on a given layer definition. 
+
+Each layer\textquotesingle{}s memory size may be different due to a different number of nodes and connections For F\+E\+E\+D F\+O\+R\+W\+A\+R\+D (e.\+g. O\+U\+T\+P\+U\+T) layers, full connectivity is assumed (i.\+e. each node links to A\+L\+L nodes in the previous layer) 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & A pointer to a layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a0c35bcf728651f05c3461d89a04144d6}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Layer\+Weight\+Block\+Size@{get\+Layer\+Weight\+Block\+Size}}
+\index{get\+Layer\+Weight\+Block\+Size@{get\+Layer\+Weight\+Block\+Size}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Layer\+Weight\+Block\+Size(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\+Size} get\+Layer\+Weight\+Block\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a0c35bcf728651f05c3461d89a04144d6}
+
+
+Returns the memory (byte) size of the weights block for a specific layer. 
+
+Each layer\textquotesingle{}s number of weights may be different due to a different number of connections For F\+E\+E\+D F\+O\+R\+W\+A\+R\+D (H\+I\+D\+D\+E\+N and O\+U\+T\+P\+U\+T) layers, full connectivity is assumed, C\+O\+N\+V layers e.\+g. share weights. 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & A pointer to a layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_aec138a1288ed75be554026e0dd5fbf4e}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Layer\+Weight\+Count@{get\+Layer\+Weight\+Count}}
+\index{get\+Layer\+Weight\+Count@{get\+Layer\+Weight\+Count}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Layer\+Weight\+Count(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Layer\+Weight\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_aec138a1288ed75be554026e0dd5fbf4e}
+
+
+Returns the number of weights for a layer (based on a given layer definition) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & A pointer to the layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a2594878532b97d3e8581dcde4da0ffdd}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Network\+Classification@{get\+Network\+Classification}}
+\index{get\+Network\+Classification@{get\+Network\+Classification}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Network\+Classification(\+Network $\ast$nn)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Network\+Classification (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a2594878532b97d3e8581dcde4da0ffdd}
+
+
+Returns the network\textquotesingle{}s classification of the input image by choosing the node with the hightest output. 
+
+Returns the network\textquotesingle{}s classification using the I\+D of teh node with the hightest output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the neural network \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a2c60aaa5ced3776b44d804530b96d684}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Network\+Layer@{get\+Network\+Layer}}
+\index{get\+Network\+Layer@{get\+Network\+Layer}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Network\+Layer(\+Network $\ast$nn, int layer\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Layer}$\ast$ get\+Network\+Layer (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a2c60aaa5ced3776b44d804530b96d684}
+
+
+Returns a pointer to a specific layer defined by its id from the network. 
+
+The layer is retrieved by moving a pointer from the network\textquotesingle{}s 1st layer forward by layer\+Id$\ast$layer\+Size (it is N\+O\+T possible to retrieve a layer simply via an array because the actual size of E\+A\+C\+H layer depends on its number/sizes of nodes) 
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the N\+N \\
+\hline
+{\em layer\+Id} & The id of the layer that is to be returned \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a4db7db0fe79bde079c77cdf70d66047d}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Network\+Node@{get\+Network\+Node}}
+\index{get\+Network\+Node@{get\+Network\+Node}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Network\+Node(\+Layer $\ast$layer, int column\+Id, int node\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ get\+Network\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer} $\ast$}]{layer, }
+\item[{int}]{column\+Id, }
+\item[{int}]{node\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a4db7db0fe79bde079c77cdf70d66047d}
+
+
+Returns a pointer to a specific node defined by its layer, column and node id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer} & A pointer to a network layer \\
+\hline
+{\em column\+Id} & The id of the column inside this layer \\
+\hline
+{\em node\+Id} & The id of the node inside this column \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a22291d5113dee2df10981d3ac398fda8}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Network\+Size@{get\+Network\+Size}}
+\index{get\+Network\+Size@{get\+Network\+Size}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Network\+Size(int layer\+Count, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\+Size} get\+Network\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a22291d5113dee2df10981d3ac398fda8}
+
+
+Returns the memory size of the network based on an array of layer definitions and weight\+Block\+Size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Count} & Number of defined layers for this network \\
+\hline
+{\em layer\+Defs} & Array of layer definitions\\
+\hline
+\end{DoxyParams}
+number of columns = width $\ast$ height number of nodes per column = depth number of nodes = width $\ast$ height $\ast$ depth number of connections = filter $\ast$ depth of previous layer $\ast$ number of nodes number of weights = filter $\ast$ depth of previous layer $\ast$ depth of this layer \hypertarget{mlnn_8c_a6f53bda77b00d02e5ee244a5bf80d571}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Network\+Weight\+Block\+Size@{get\+Network\+Weight\+Block\+Size}}
+\index{get\+Network\+Weight\+Block\+Size@{get\+Network\+Weight\+Block\+Size}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Network\+Weight\+Block\+Size(int layer\+Count, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\+Size} get\+Network\+Weight\+Block\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a6f53bda77b00d02e5ee244a5bf80d571}
+
+
+Returns the memory size of the network\textquotesingle{}s weights block based on a given array of layer definitions. 
+
+Each layer\textquotesingle{}s number of weights may be different due to a different number of nodes \& connections The weight block is a block of memory that is located inside the network object, A\+F\+T\+E\+R the layers. 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Count} & The number of layers in the network \\
+\hline
+{\em layer\+Defs} & A pointer to an array of layer definitions \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a8ed146259dc505f7ef7b8f04881ee6fd}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Node\+Backward\+Connection\+Count@{get\+Node\+Backward\+Connection\+Count}}
+\index{get\+Node\+Backward\+Connection\+Count@{get\+Node\+Backward\+Connection\+Count}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Node\+Backward\+Connection\+Count(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Node\+Backward\+Connection\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a8ed146259dc505f7ef7b8f04881ee6fd}
+
+
+Returns the number of backward connections of a N\+O\+D\+E (not of a layer) 
+
+For F\+E\+E\+D F\+O\+R\+W\+A\+R\+D (H\+I\+D\+D\+E\+N and O\+U\+T\+P\+U\+T) layers, full connectivity is assumed (each node links to A\+L\+L nodes in the previous layer) 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & Pointer to a layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a7b86acbe777bfb0967fa143cd4409d00}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Node\+Forward\+Connection\+Count@{get\+Node\+Forward\+Connection\+Count}}
+\index{get\+Node\+Forward\+Connection\+Count@{get\+Node\+Forward\+Connection\+Count}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Node\+Forward\+Connection\+Count(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Node\+Forward\+Connection\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a7b86acbe777bfb0967fa143cd4409d00}
+
+
+Returns the number of forward connections of a N\+O\+D\+E (not of a layer) 
+
+\begin{DoxyAttention}{Attention}
+The number of F\+O\+R\+W\+A\+R\+D connections in one layer is N\+O\+T the same as the number of B\+A\+C\+K\+W\+A\+R\+D connections in the following layer!! 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & A pointer to the layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a08566a3881abbe4047eb9329b08355a1}{}\index{mlnn.\+c@{mlnn.\+c}!get\+Node\+Size@{get\+Node\+Size}}
+\index{get\+Node\+Size@{get\+Node\+Size}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{get\+Node\+Size(\+Layer\+Definition $\ast$layer\+Def)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Byte\+Size} get\+Node\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Def}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a08566a3881abbe4047eb9329b08355a1}
+
+
+Returns the memory (byte) size of a node based on a given layer definition. 
+
+Each layer\textquotesingle{}s nodes\textquotesingle{} memory size may be different due to a different number of connections For F\+E\+E\+D F\+O\+R\+W\+A\+R\+D (H\+I\+D\+D\+E\+N and O\+U\+T\+P\+U\+T) layers, full connectivity is assumed (each node links to A\+L\+L nodes in the previous layer) 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Def} & Pointer to a layer definition \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_ac1d055950155f3889b1ec73ae07f7eb7}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network@{init\+Network}}
+\index{init\+Network@{init\+Network}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network(\+Network $\ast$nn, int layer\+Count, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_ac1d055950155f3889b1ec73ae07f7eb7}
+\hypertarget{mlnn_8c_acfb20b4438bf1c9594706fb000753b71}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Backward\+Connections\+Conv\+Node@{init\+Network\+Backward\+Connections\+Conv\+Node}}
+\index{init\+Network\+Backward\+Connections\+Conv\+Node@{init\+Network\+Backward\+Connections\+Conv\+Node}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Backward\+Connections\+Conv\+Node(\+Node $\ast$node, int src\+Level, Weight $\ast$src\+Layer\+Weight\+Ptr, Layer $\ast$target\+Layer, Vector $\ast$filter\+Col\+Ids, Weight $\ast$null\+Weight)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Backward\+Connections\+Conv\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node, }
+\item[{int}]{src\+Level, }
+\item[{{\bf Weight} $\ast$}]{src\+Layer\+Weight\+Ptr, }
+\item[{{\bf Layer} $\ast$}]{target\+Layer, }
+\item[{{\bf Vector} $\ast$}]{filter\+Col\+Ids, }
+\item[{{\bf Weight} $\ast$}]{null\+Weight}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_acfb20b4438bf1c9594706fb000753b71}
+
+
+Initializes a single convolutional node by setting its connections weights pointers. 
+
+Each convolutional node has connections to a filter/kernel window of nodes in the previous layer. 
+\begin{DoxyParams}{Parameters}
+{\em node} & A pointer to the convolutional node whose connections are to be set/initialized \\
+\hline
+{\em src\+Level} & The node\textquotesingle{}s level inside the column. Needed to calculate the position of the respective weight. \\
+\hline
+{\em src\+Layer\+Weight\+Ptr} & A pointer to the weight block of this (=convolutional node\textquotesingle{}s) layer \\
+\hline
+{\em target\+Layer} & A pointer to the target layer to which this convolutional node shall connect to \\
+\hline
+{\em filter\+Col\+Ids} & A vector of indeces/positions of the target columns/nodes that this node connects to \\
+\hline
+{\em null\+Weight} & A pointer to a weight that is used (1) to initialize or (2) to link \char`\"{}dead\char`\"{} connections\\
+\hline
+\end{DoxyParams}
+The following describes the logic/algorithm for calculating the weights\textquotesingle{} position
+
+use W\+E\+I\+G\+H\+T M\+A\+T\+R\+I\+X (of size filter $\ast$ filter) for L\+E\+V\+E\+L 1 establish connections from source node to all nodes on L\+E\+V\+E\+L 1 inside the T\+A\+R\+G\+E\+T F\+I\+L\+T\+E\+R using W\+M1 use W\+E\+I\+G\+H\+T M\+A\+T\+R\+I\+X of L\+E\+V\+E\+L 2 establish connections from source node to all nodes on L\+E\+V\+E\+L 2 inside the T\+A\+R\+G\+E\+T F\+I\+L\+T\+E\+R using W\+M2 same for all levels of T\+A\+R\+G\+E\+T L\+A\+Y\+E\+R
+
+move source node to next node (= next node/level in S\+A\+M\+E C\+O\+L\+U\+M\+N!)
+
+do same as above, again from L\+E\+V\+E\+L1-\/n using W\+M1-\/n
+
+weights pointer position = (src\+Level $\ast$ tgt\+Depth $\ast$ filter\+Size) + (tgt\+Level $\ast$ filter\+Sizer) + filter\+Col\+Id
+
+move the filter using the S\+A\+M\+E W\+E\+I\+G\+H\+T M\+A\+T\+R\+I\+X across the target layer then move 1 level down in the T\+A\+R\+G\+E\+T layer \hypertarget{mlnn_8c_a53fd605a32d4c375d73f72d0f23584b5}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Backward\+Connections\+F\+C\+Node@{init\+Network\+Backward\+Connections\+F\+C\+Node}}
+\index{init\+Network\+Backward\+Connections\+F\+C\+Node@{init\+Network\+Backward\+Connections\+F\+C\+Node}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Backward\+Connections\+F\+C\+Node(\+Node $\ast$this\+Node, Layer $\ast$prev\+Layer, Weight $\ast$node\+Weight\+Ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Backward\+Connections\+F\+C\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{this\+Node, }
+\item[{{\bf Layer} $\ast$}]{prev\+Layer, }
+\item[{{\bf Weight} $\ast$}]{node\+Weight\+Ptr}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a53fd605a32d4c375d73f72d0f23584b5}
+
+
+Initializes a node of a normal, fully connected node. 
+
+Creates connections with pointers towards all nodes of the previous layer (=fully connected) \begin{DoxyAttention}{Attention}
+The node\textquotesingle{}s bias weight is not initialized here but together with the weights 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em this\+Node} & A pointer to the node whose connections are to be added/initialized \\
+\hline
+{\em prev\+Layer} & A pointer to the P\+R\+E\+V\+I\+O\+U\+S layer which this node will connect to \\
+\hline
+{\em node\+Weight\+Ptr} & A pointer to the memory block that is to store the weights of this node \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a484392de1623a3a409dcae746cd5adc7}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Columns@{init\+Network\+Columns}}
+\index{init\+Network\+Columns@{init\+Network\+Columns}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Columns(\+Network $\ast$nn, int layer\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Columns (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a484392de1623a3a409dcae746cd5adc7}
+
+
+Initializes a network layer\textquotesingle{}s column/node structure and sets detault values. 
+
+A column is a vector of nodes. The number of nodes in a colum is defined as the \char`\"{}\+D\+E\+P\+T\+H\char`\"{} (or number of feature maps) For non-\/convolutional layers the D\+E\+P\+T\+H (i.\+e. number of nodes in a column) is 1. 
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer the network \\
+\hline
+{\em layer\+Id} & The id of the layer whose column are to be initialized \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_af94a8a48b0b4385887b3e0cf2d5eaa89}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Forward\+Connections@{init\+Network\+Forward\+Connections}}
+\index{init\+Network\+Forward\+Connections@{init\+Network\+Forward\+Connections}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Forward\+Connections(\+Network $\ast$nn, int layer\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Forward\+Connections (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_af94a8a48b0b4385887b3e0cf2d5eaa89}
+\hypertarget{mlnn_8c_a3c4b1174c9c2a9c2deb35870af493210}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Forward\+Connections\+Any\+Node@{init\+Network\+Forward\+Connections\+Any\+Node}}
+\index{init\+Network\+Forward\+Connections\+Any\+Node@{init\+Network\+Forward\+Connections\+Any\+Node}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Forward\+Connections\+Any\+Node(\+Node $\ast$this\+Node, Layer $\ast$next\+Layer)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Forward\+Connections\+Any\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{this\+Node, }
+\item[{{\bf Layer} $\ast$}]{next\+Layer}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a3c4b1174c9c2a9c2deb35870af493210}
+\hypertarget{mlnn_8c_a7492680db02bd031d9ffdadd29f0b6ae}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Layer@{init\+Network\+Layer}}
+\index{init\+Network\+Layer@{init\+Network\+Layer}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Layer(\+Network $\ast$nn, int layer\+Id, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Layer (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Id, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a7492680db02bd031d9ffdadd29f0b6ae}
+
+
+Initializes a network layer by creating the column/node structure and sets detault values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the neural network \\
+\hline
+{\em layer\+Id} & The id of the layer which is to be initialized \\
+\hline
+{\em layer\+Defs} & Pointer to an array of layer definitions \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_ab4f85c53c92f9ca22d1e8a346e45caeb}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Nodes@{init\+Network\+Nodes}}
+\index{init\+Network\+Nodes@{init\+Network\+Nodes}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Nodes(\+Network $\ast$nn, int layer\+Id, int column\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Nodes (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Id, }
+\item[{int}]{column\+Id}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_ab4f85c53c92f9ca22d1e8a346e45caeb}
+
+
+Initializes the nodes in a given network column. 
+
+Creates the column/node structure inside the network\textquotesingle{}s respective memory block. Connections will be initialized with a N\+U\+L\+L pointer and a default -\/$>$null\+Weight pointer (for null weights I don\textquotesingle{}t use N\+U\+L\+L to avoid exceptions if it is (mistakenly?) dereferenced) 
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the network \\
+\hline
+{\em layer\+Id} & The index of the layer whose column=nodes are to be initialized \\
+\hline
+{\em column\+Id} & The index of the column whose nodes are to be initialized \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a5a26cfa36bff4cdbcd279508a39b44b4}{}\index{mlnn.\+c@{mlnn.\+c}!init\+Network\+Weights@{init\+Network\+Weights}}
+\index{init\+Network\+Weights@{init\+Network\+Weights}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{init\+Network\+Weights(\+Network $\ast$nn)}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Network\+Weights (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a5a26cfa36bff4cdbcd279508a39b44b4}
+\hypertarget{mlnn_8c_abd6da46d3b1bfb56a10bc72bd71f1140}{}\index{mlnn.\+c@{mlnn.\+c}!is\+Valid\+Network\+Definition@{is\+Valid\+Network\+Definition}}
+\index{is\+Valid\+Network\+Definition@{is\+Valid\+Network\+Definition}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{is\+Valid\+Network\+Definition(int layer\+Count, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}bool is\+Valid\+Network\+Definition (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_abd6da46d3b1bfb56a10bc72bd71f1140}
+
+
+Validates the network definition based on a number of rules and best practices. 
+
+Checks whether the provided layer definitions define a proper/feasible a neural network 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Count} & Number of defined layers for this network \\
+\hline
+{\em layer\+Defs} & A pointer to an array of layer definitions \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a2b18eda5fae1eb2fec1b0ca56f05dbf6}{}\index{mlnn.\+c@{mlnn.\+c}!set\+Layer\+Definition\+Defaults@{set\+Layer\+Definition\+Defaults}}
+\index{set\+Layer\+Definition\+Defaults@{set\+Layer\+Definition\+Defaults}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{set\+Layer\+Definition\+Defaults(int layer\+Count, Layer\+Definition $\ast$layer\+Defs)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Layer\+Definition\+Defaults (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a2b18eda5fae1eb2fec1b0ca56f05dbf6}
+
+
+Returns a pointer to an array of a variable number of layer definitions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Count} & Number of layers of the network \\
+\hline
+{\em layer\+Defs} & Variabe number of layer definition objects \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_af5fe916125b608a79e7cf14cdb443c25}{}\index{mlnn.\+c@{mlnn.\+c}!set\+Layer\+Definitions@{set\+Layer\+Definitions}}
+\index{set\+Layer\+Definitions@{set\+Layer\+Definitions}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{set\+Layer\+Definitions(int layer\+Count,...)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Layer\+Definition}$\ast$ set\+Layer\+Definitions (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Count, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_af5fe916125b608a79e7cf14cdb443c25}
+
+
+Returns a pointer to an array of a variable number of layer definitions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+Count} & Number of layers of the network \\
+\hline
+{\em ...} & Variabe number of layer definition objects \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_aaf0aa6a4cb942e0b404e09871bed0834}{}\index{mlnn.\+c@{mlnn.\+c}!set\+Network\+Defaults@{set\+Network\+Defaults}}
+\index{set\+Network\+Defaults@{set\+Network\+Defaults}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{set\+Network\+Defaults(\+Network $\ast$nn, int layer\+Count, Layer\+Definition $\ast$layer\+Defs, Byte\+Size net\+Size)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Network\+Defaults (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{nn, }
+\item[{int}]{layer\+Count, }
+\item[{{\bf Layer\+Definition} $\ast$}]{layer\+Defs, }
+\item[{{\bf Byte\+Size}}]{net\+Size}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_aaf0aa6a4cb942e0b404e09871bed0834}
+
+
+Sets the network\textquotesingle{}s default values for size, layer\+Count,. 
+
+Theses values are needed to \char`\"{}navigate\char`\"{} inside the network object 
+\begin{DoxyParams}{Parameters}
+{\em nn} & A pointer to the neural network \\
+\hline
+{\em layer\+Count} & The number of layers of this network \\
+\hline
+{\em layer\+Defs} & A pointer to an array of the layer definitions for this network \\
+\hline
+{\em net\+Size} & Total memory size of the network \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a12f1992d0aaec1e32c16f5100a7ca0c8}{}\index{mlnn.\+c@{mlnn.\+c}!set\+Network\+Node\+Defaults@{set\+Network\+Node\+Defaults}}
+\index{set\+Network\+Node\+Defaults@{set\+Network\+Node\+Defaults}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{set\+Network\+Node\+Defaults(\+Layer $\ast$this\+Layer, Column $\ast$column, Node $\ast$node, Weight $\ast$null\+Weight)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Network\+Node\+Defaults (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer} $\ast$}]{this\+Layer, }
+\item[{{\bf Column} $\ast$}]{column, }
+\item[{{\bf Node} $\ast$}]{node, }
+\item[{{\bf Weight} $\ast$}]{null\+Weight}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a12f1992d0aaec1e32c16f5100a7ca0c8}
+
+
+Sets default values for a node during its initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this\+Layer} & A pointer to the layer in which the node is located \\
+\hline
+{\em column} & A pointer to the column in which the node is located \\
+\hline
+{\em node} & A pointer to the node whose values are to be (re)set \\
+\hline
+{\em null\+Weight} & A pointer to the network\textquotesingle{}s null weight \\
+\hline
+\end{DoxyParams}
+\hypertarget{mlnn_8c_a4140a0839a2ef1ba88b90ba340b41090}{}\index{mlnn.\+c@{mlnn.\+c}!update\+Node\+Weights@{update\+Node\+Weights}}
+\index{update\+Node\+Weights@{update\+Node\+Weights}!mlnn.\+c@{mlnn.\+c}}
+\subsubsection[{update\+Node\+Weights(\+Node $\ast$update\+Node, double learning\+Rate)}]{\setlength{\rightskip}{0pt plus 5cm}void update\+Node\+Weights (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{update\+Node, }
+\item[{double}]{learning\+Rate}
+\end{DoxyParamCaption}
+)}\label{mlnn_8c_a4140a0839a2ef1ba88b90ba340b41090}
+
+
+Updates a node\textquotesingle{}s weights based on given learning rate. 
+
+The accumulated error (difference between desired output and actual output) of this node must have been calculated before and attached to the node (= -\/$>$error\+Sum) 
+\begin{DoxyParams}{Parameters}
+{\em update\+Node} & A pointer to the node whose weights are to be updated \\
+\hline
+{\em learning\+Rate} & The factor with which errors are applied to weights \\
+\hline
+\end{DoxyParams}

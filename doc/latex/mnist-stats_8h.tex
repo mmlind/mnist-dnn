@@ -1,0 +1,107 @@
+\hypertarget{mnist-stats_8h}{}\section{util/mnist-\/stats.h File Reference}
+\label{mnist-stats_8h}\index{util/mnist-\/stats.\+h@{util/mnist-\/stats.\+h}}
+
+
+Utitlies for displaying processing details in the terminal.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mnist-stats_8h_a9661d063fbb3016f798e34764a2a6b84}{display\+Image\+Frame} (int y, int x)
+\begin{DoxyCompactList}\small\item\em Outputs a 28x28 text frame at a defined screen position. \end{DoxyCompactList}\item 
+void \hyperlink{mnist-stats_8h_a53dfbeeccdcba8c3c5e707487f7d422e}{display\+Image} (\hyperlink{struct_m_n_i_s_t___image}{M\+N\+I\+S\+T\+\_\+\+Image} $\ast$img, int lbl, int cls, int row, int col)
+\begin{DoxyCompactList}\small\item\em Outputs a 28x28 M\+N\+I\+S\+T image as charachters (\char`\"{}.\char`\"{}s and \char`\"{}\+X\char`\"{}s) \end{DoxyCompactList}\item 
+void \hyperlink{mnist-stats_8h_ae72b998f2876df0e8b7cfa9501531e6e}{display\+Training\+Progress} (int img\+Count, int err\+Count)
+\begin{DoxyCompactList}\small\item\em Outputs reading progress while processing M\+N\+I\+S\+T training images. \end{DoxyCompactList}\item 
+void \hyperlink{mnist-stats_8h_a9331d15ac78b41bbed855cb8221168fb}{display\+Testing\+Progress} (int img\+Count, int err\+Count)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utitlies for displaying processing details in the terminal. 
+
+\begin{DoxyAuthor}{Author}
+Matt Lind 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+July 2015 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{mnist-stats_8h_a53dfbeeccdcba8c3c5e707487f7d422e}{}\index{mnist-\/stats.\+h@{mnist-\/stats.\+h}!display\+Image@{display\+Image}}
+\index{display\+Image@{display\+Image}!mnist-\/stats.\+h@{mnist-\/stats.\+h}}
+\subsubsection[{display\+Image(\+M\+N\+I\+S\+T\+\_\+\+Image $\ast$img, int lbl, int cls, int row, int col)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+Image (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+N\+I\+S\+T\+\_\+\+Image} $\ast$}]{img, }
+\item[{int}]{lbl, }
+\item[{int}]{cls, }
+\item[{int}]{row, }
+\item[{int}]{col}
+\end{DoxyParamCaption}
+)}\label{mnist-stats_8h_a53dfbeeccdcba8c3c5e707487f7d422e}
+
+
+Outputs a 28x28 M\+N\+I\+S\+T image as charachters (\char`\"{}.\char`\"{}s and \char`\"{}\+X\char`\"{}s) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & Pointer to a M\+N\+I\+S\+T image \\
+\hline
+{\em lbl} & Target classification \\
+\hline
+{\em cls} & Actual classification \\
+\hline
+{\em row} & Row on screen (x-\/coordinate) where to display the image \\
+\hline
+{\em col} & \hyperlink{struct_column}{Column} on screen (y-\/coordinate) where to display the image\\
+\hline
+\end{DoxyParams}
+Outputs a 28x28 M\+N\+I\+S\+T image as charachters (\char`\"{}.\char`\"{}s and \char`\"{}\+X\char`\"{}s) \hypertarget{mnist-stats_8h_a9661d063fbb3016f798e34764a2a6b84}{}\index{mnist-\/stats.\+h@{mnist-\/stats.\+h}!display\+Image\+Frame@{display\+Image\+Frame}}
+\index{display\+Image\+Frame@{display\+Image\+Frame}!mnist-\/stats.\+h@{mnist-\/stats.\+h}}
+\subsubsection[{display\+Image\+Frame(int y, int x)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+Image\+Frame (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{col}
+\end{DoxyParamCaption}
+)}\label{mnist-stats_8h_a9661d063fbb3016f798e34764a2a6b84}
+
+
+Outputs a 28x28 text frame at a defined screen position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Row of terminal screen \\
+\hline
+{\em col} & \hyperlink{struct_column}{Column} of terminal screen\\
+\hline
+\end{DoxyParams}
+Outputs a 28x28 text frame at a defined screen position \hypertarget{mnist-stats_8h_a9331d15ac78b41bbed855cb8221168fb}{}\index{mnist-\/stats.\+h@{mnist-\/stats.\+h}!display\+Testing\+Progress@{display\+Testing\+Progress}}
+\index{display\+Testing\+Progress@{display\+Testing\+Progress}!mnist-\/stats.\+h@{mnist-\/stats.\+h}}
+\subsubsection[{display\+Testing\+Progress(int img\+Count, int err\+Count)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+Testing\+Progress (
+\begin{DoxyParamCaption}
+\item[{int}]{img\+Count, }
+\item[{int}]{err\+Count}
+\end{DoxyParamCaption}
+)}\label{mnist-stats_8h_a9331d15ac78b41bbed855cb8221168fb}
+\hypertarget{mnist-stats_8h_ae72b998f2876df0e8b7cfa9501531e6e}{}\index{mnist-\/stats.\+h@{mnist-\/stats.\+h}!display\+Training\+Progress@{display\+Training\+Progress}}
+\index{display\+Training\+Progress@{display\+Training\+Progress}!mnist-\/stats.\+h@{mnist-\/stats.\+h}}
+\subsubsection[{display\+Training\+Progress(int img\+Count, int err\+Count)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+Training\+Progress (
+\begin{DoxyParamCaption}
+\item[{int}]{img\+Count, }
+\item[{int}]{err\+Count}
+\end{DoxyParamCaption}
+)}\label{mnist-stats_8h_ae72b998f2876df0e8b7cfa9501531e6e}
+
+
+Outputs reading progress while processing M\+N\+I\+S\+T training images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img\+Count} & Number of images already read from the M\+N\+I\+S\+T file \\
+\hline
+{\em err\+Count} & Number of errors (images incorrectly classified)\\
+\hline
+\end{DoxyParams}
+Outputs reading progress while processing M\+N\+I\+S\+T training images 
