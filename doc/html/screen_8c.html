@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Deep Neural Network for MNIST Handwriting Recognition: util/screen.c File Reference</title>
+<title>Deep Neural Network for MNIST Handwriting Recognition: /Users/mlind/Coding/Github/mnist-dnn/util/screen.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,12 +94,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Utitlies for advanced input and output to terminal screen.  
+<p>Utitlies for advanced input and output to the terminal screen.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="screen_8h_source.html">screen.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mlnn_8h_source.html">../mlnn.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dnn_8h_source.html">../dnn.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -110,21 +110,24 @@ Functions</h2></td></tr>
 <tr class="memdesc:acecf901c15a2150148863cbc4d0709da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set text color in terminal by printing an escape sequence.  <a href="#acecf901c15a2150148863cbc4d0709da">More...</a><br /></td></tr>
 <tr class="separator:acecf901c15a2150148863cbc4d0709da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d9b88ebe279c8a88885f9c1366cdfc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a0d9b88ebe279c8a88885f9c1366cdfc6">moveCursorTo</a> (const int x)</td></tr>
+<tr class="memdesc:a0d9b88ebe279c8a88885f9c1366cdfc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the specified horizontal position in the current line.  <a href="#a0d9b88ebe279c8a88885f9c1366cdfc6">More...</a><br /></td></tr>
 <tr class="separator:a0d9b88ebe279c8a88885f9c1366cdfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f5ac8127b63323d1973308a23cddc1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a2f5ac8127b63323d1973308a23cddc1d">moveCursorLeft</a> (const int x)</td></tr>
+<tr class="memdesc:a2f5ac8127b63323d1973308a23cddc1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the left of the current position by a specified number of steps.  <a href="#a2f5ac8127b63323d1973308a23cddc1d">More...</a><br /></td></tr>
 <tr class="separator:a2f5ac8127b63323d1973308a23cddc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2882233e3cb558b6b4851b5b20f2864"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#ad2882233e3cb558b6b4851b5b20f2864">locateCursor</a> (const int row, const int col)</td></tr>
 <tr class="memdesc:ad2882233e3cb558b6b4851b5b20f2864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set cursor position to given coordinates in the terminal window.  <a href="#ad2882233e3cb558b6b4851b5b20f2864">More...</a><br /></td></tr>
 <tr class="separator:ad2882233e3cb558b6b4851b5b20f2864"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4de43aabc7dfdca6c8892edc32fd717b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a4de43aabc7dfdca6c8892edc32fd717b">getLayerTypeString</a> (<a class="el" href="mlnn_8h.html#a56943a0946e5f15e5e58054b8e7a04a4">LayerType</a> lt)</td></tr>
+<tr class="memitem:a4de43aabc7dfdca6c8892edc32fd717b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a4de43aabc7dfdca6c8892edc32fd717b">getLayerTypeString</a> (<a class="el" href="dnn_8h.html#a56943a0946e5f15e5e58054b8e7a04a4">LayerType</a> lt)</td></tr>
 <tr class="separator:a4de43aabc7dfdca6c8892edc32fd717b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa34e4774ed179e04c8773ed5c7b01389"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#aa34e4774ed179e04c8773ed5c7b01389">getActivationTypeString</a> (<a class="el" href="mlnn_8h.html#a56b0419d049f390f332329193f952b41">ActFctType</a> at)</td></tr>
+<tr class="memitem:aa34e4774ed179e04c8773ed5c7b01389"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#aa34e4774ed179e04c8773ed5c7b01389">getActivationTypeString</a> (<a class="el" href="dnn_8h.html#a56b0419d049f390f332329193f952b41">ActFctType</a> at)</td></tr>
 <tr class="separator:aa34e4774ed179e04c8773ed5c7b01389"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3267807d89ea00ee938dc38e2a9fc587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a3267807d89ea00ee938dc38e2a9fc587">outputNetworkDefinition</a> (int layerCount, <a class="el" href="struct_layer_definition.html">LayerDefinition</a> *layerDefs)</td></tr>
+<tr class="memdesc:a3267807d89ea00ee938dc38e2a9fc587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs a summary table of the network specified via the given array of layer definitions.  <a href="#a3267807d89ea00ee938dc38e2a9fc587">More...</a><br /></td></tr>
 <tr class="separator:a3267807d89ea00ee938dc38e2a9fc587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utitlies for advanced input and output to terminal screen. </p>
+<div class="textblock"><p>Utitlies for advanced input and output to the terminal screen. </p>
 <dl class="section author"><dt>Author</dt><dd>Matt Lind </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>July 2015 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -135,7 +138,6 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void clearScreen </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -154,12 +156,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char* getActivationTypeString </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="mlnn_8h.html#a56b0419d049f390f332329193f952b41">ActFctType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="dnn_8h.html#a56b0419d049f390f332329193f952b41">ActFctType</a>&#160;</td>
           <td class="paramname"><em>at</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns a string for the given activation type </p>
 
 </div>
 </div>
@@ -170,12 +173,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char* getLayerTypeString </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="mlnn_8h.html#a56943a0946e5f15e5e58054b8e7a04a4">LayerType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="dnn_8h.html#a56943a0946e5f15e5e58054b8e7a04a4">LayerType</a>&#160;</td>
           <td class="paramname"><em>lt</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns a string for the given layer type </p>
 
 </div>
 </div>
@@ -204,7 +208,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set cursor position to given coordinates in the terminal window. </p>
-<p>Set cursor position to given coordinates in the terminal window </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Row number in terminal screen </td></tr>
+    <tr><td class="paramname">col</td><td><a class="el" href="struct_column.html" title="Variably-sized data structure modeling a vector of nodes. ">Column</a> number in terminal screen </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -222,6 +232,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Moves the cursor to the left of the current position by a specified number of steps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Number of steps that the cursor is moved to the left </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a0d9b88ebe279c8a88885f9c1366cdfc6"></a>
@@ -237,6 +255,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Moves the cursor to the specified horizontal position in the current line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Horizaontal coordinate to why the cursor is moved to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -263,6 +289,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Outputs a summary table of the network specified via the given array of layer definitions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layerCount</td><td>The number of layer in this network </td></tr>
+    <tr><td class="paramname">layerDefs</td><td>A pointer to an array of layer definitions </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

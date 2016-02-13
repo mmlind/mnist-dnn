@@ -91,20 +91,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Data structure pointing to a node using a weight that is points to.  
+<p>Data structure attached to a node and pointing to another node as well as to a weight.  
  <a href="struct_connection.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="mlnn_8h_source.html">mlnn.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="dnn_8h_source.html">dnn.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a3faa6359b3379a1c9088a2ef71e9de70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_connection.html#a3faa6359b3379a1c9088a2ef71e9de70">nodePtr</a></td></tr>
 <tr class="separator:a3faa6359b3379a1c9088a2ef71e9de70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94fe55945a237accd942dad1aee52683"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mlnn_8h.html#a5b53e5716aeadbb040a52c9c8c124c74">Weight</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_connection.html#a94fe55945a237accd942dad1aee52683">weightPtr</a></td></tr>
+<tr class="memitem:a94fe55945a237accd942dad1aee52683"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dnn_8h.html#a5b53e5716aeadbb040a52c9c8c124c74">Weight</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_connection.html#a94fe55945a237accd942dad1aee52683">weightPtr</a></td></tr>
 <tr class="separator:a94fe55945a237accd942dad1aee52683"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Data structure pointing to a node using a weight that is points to. </p>
+<div class="textblock"><p>Data structure attached to a node and pointing to another node as well as to a weight. </p>
+<p>Every node has 2 types of connections: forward and backward. Backward connections are used during feed forward to locate the normalized output in the previous layer. Forward connections are used during back propagation to locate the partial errors in the following layer. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a class="anchor" id="a3faa6359b3379a1c9088a2ef71e9de70"></a>
 <div class="memitem">
@@ -123,7 +124,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mlnn_8h.html#a5b53e5716aeadbb040a52c9c8c124c74">Weight</a>* weightPtr</td>
+          <td class="memname"><a class="el" href="dnn_8h.html#a5b53e5716aeadbb040a52c9c8c124c74">Weight</a>* weightPtr</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -131,7 +132,7 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="mlnn_8h_source.html">mlnn.h</a></li>
+<li>/Users/mlind/Coding/Github/mnist-dnn/<a class="el" href="dnn_8h_source.html">dnn.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

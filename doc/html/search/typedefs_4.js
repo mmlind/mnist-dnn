@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['layer',['Layer',['../mlnn_8h.html#a0a0b68a32dcbcdb0bdcdfc430c27732a',1,'mlnn.h']]],
-  ['layerdefinition',['LayerDefinition',['../mlnn_8h.html#a6d298265fab9999b481d9c9e97c38940',1,'mlnn.h']]],
-  ['layertype',['LayerType',['../mlnn_8h.html#a4c4eacdbbcd8a3141676f1aa0f50e491',1,'mlnn.h']]]
+  ['mnist_5fimage',['MNIST_Image',['../mnist-utils_8h.html#ac86380de7c7c685ea8e992a27f671239',1,'mnist-utils.h']]],
+  ['mnist_5fimagefileheader',['MNIST_ImageFileHeader',['../mnist-utils_8h.html#ab159c22eb44132d35b9c25d1d23875e9',1,'mnist-utils.h']]],
+  ['mnist_5flabel',['MNIST_Label',['../mnist-utils_8h.html#ac563f2337f8e23f2dcc095e41c138bfa',1,'mnist-utils.h']]],
+  ['mnist_5flabelfileheader',['MNIST_LabelFileHeader',['../mnist-utils_8h.html#a5445804de6d58a3726ff543cd3cf1cdb',1,'mnist-utils.h']]]
 ];

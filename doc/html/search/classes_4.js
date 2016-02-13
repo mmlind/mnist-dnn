@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['network',['Network',['../struct_network.html',1,'']]],
-  ['node',['Node',['../struct_node.html',1,'']]]
+  ['vector',['Vector',['../struct_vector.html',1,'']]],
+  ['volume',['Volume',['../struct_volume.html',1,'']]]
 ];

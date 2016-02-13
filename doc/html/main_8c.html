@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Deep Neural Network for MNIST Handwriting Recognition: main.c File Reference</title>
+<title>Deep Neural Network for MNIST Handwriting Recognition: /Users/mlind/Coding/Github/mnist-dnn/main.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">main.c File Reference</div>  </div>
+<div class="title">/Users/mlind/Coding/Github/mnist-dnn/main.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdarg.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;locale.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="mlnn_8h_source.html">mlnn.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dnn_8h_source.html">dnn.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mnist-utils_8h_source.html">util/mnist-utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mnist-stats_8h_source.html">util/mnist-stats.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="screen_8h_source.html">util/screen.h</a>&quot;</code><br />
@@ -102,10 +102,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a33601129c748473d698260d37d548ec8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a33601129c748473d698260d37d548ec8">trainNetwork</a> (<a class="el" href="struct_network.html">Network</a> *nn)</td></tr>
-<tr class="memdesc:a33601129c748473d698260d37d548ec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train (include learning=updating weights) the network by processing the MNIST training set once (single epoch)  <a href="#a33601129c748473d698260d37d548ec8">More...</a><br /></td></tr>
+<tr class="memdesc:a33601129c748473d698260d37d548ec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trains a network on the MNIST training set.  <a href="#a33601129c748473d698260d37d548ec8">More...</a><br /></td></tr>
 <tr class="separator:a33601129c748473d698260d37d548ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fb2b4dca6c559742730b6da582229cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6fb2b4dca6c559742730b6da582229cf">testNetwork</a> (<a class="el" href="struct_network.html">Network</a> *nn)</td></tr>
-<tr class="memdesc:a6fb2b4dca6c559742730b6da582229cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the trained network by processing the MNIST testing set WITHOUT updating weights (single epoch)  <a href="#a6fb2b4dca6c559742730b6da582229cf">More...</a><br /></td></tr>
+<tr class="memdesc:a6fb2b4dca6c559742730b6da582229cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests an already trained network on the MNIST testing set.  <a href="#a6fb2b4dca6c559742730b6da582229cf">More...</a><br /></td></tr>
 <tr class="separator:a6fb2b4dca6c559742730b6da582229cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0f2228420376f4db7e1274f2b41667c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c">main</a> (int argc, const char *argv[])</td></tr>
 <tr class="separator:ac0f2228420376f4db7e1274f2b41667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +134,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Main function to run this neural network </p>
+<p>Run a demo that creates a network using a sample network design and ouputs result to console </p>
 
 </div>
 </div>
@@ -152,10 +152,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Test the trained network by processing the MNIST testing set WITHOUT updating weights (single epoch) </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Tests an already trained network on the MNIST testing set. </p>
+<p>Follows same steps as training process but without backpropagation and updating weights </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nn</td><td>A pointer to the NN </td></tr>
+    <tr><td class="paramname">nn</td><td>A pointer to the network </td></tr>
   </table>
   </dd>
 </dl>
@@ -176,10 +176,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Train (include learning=updating weights) the network by processing the MNIST training set once (single epoch) </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Trains a network on the MNIST training set. </p>
+<p>Trains the network by feeding input, calculating and backpropaging the error, updating weights </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nn</td><td>A pointer to the NN </td></tr>
+    <tr><td class="paramname">nn</td><td>A pointer to the network </td></tr>
   </table>
   </dd>
 </dl>

@@ -156,31 +156,7 @@ int main(int argc, const char * argv[]) {
     // Define how many layers
     int numberOfLayers = 4;
 
-    // Define details of each layer
-    LayerDefinition inputLayer = {
-        .layerType       = INPUT,
-        .nodeMap         = (Volume){.width=MNIST_IMG_WIDTH, .height=MNIST_IMG_HEIGHT}
-    };
-    
-    LayerDefinition hiddenLayer = {
-        .layerType       = FULLY_CONNECTED,
-        .activationType  = SIGMOID,
-        .nodeMap         = (Volume){.width=500}
-    };
-    LayerDefinition hiddenLayer2 = {
-        .layerType       = FULLY_CONNECTED,
-        .activationType  = SIGMOID,
-        .nodeMap         = (Volume){.width=150}
-    };
-    LayerDefinition outputLayer = {
-        .layerType       = OUTPUT,
-        .activationType  = SIGMOID,
-        .nodeMap         = (Volume){.width=10}
-    };
-    
-    
-/*
-    // Define details of each layer
+    // Define the network model as individual layers (layer by layer)
     LayerDefinition inputLayer = {
         .layerType       = INPUT,
         .nodeMap         = (Volume){.width=MNIST_IMG_WIDTH, .height=MNIST_IMG_HEIGHT}
@@ -205,7 +181,6 @@ int main(int argc, const char * argv[]) {
         .activationType  = RELU,
         .nodeMap         = (Volume){.width=10}
     };
- */
     
     // Create an array to hold all of the above layer definitions (for easier reference throught the code)
     LayerDefinition *layerDefs = setLayerDefinitions(numberOfLayers, inputLayer, hiddenLayer, hiddenLayer2, outputLayer);
@@ -218,14 +193,10 @@ int main(int argc, const char * argv[]) {
     
     // Define additional hyper-parameters (optional)
     nn->learningRate = 0.0004;
-    nn->learningRate = 0.005;
     
     // Train the network
-    for (int i=0;i<2;i++){
-        trainNetwork(nn);
-        printf("\n");
-        
-    }
+    trainNetwork(nn);
+    printf("\n");
     
     // Test the network
     testNetwork(nn);
@@ -238,7 +209,7 @@ int main(int argc, const char * argv[]) {
     time_t endTime = time(NULL);
     double executionTime = difftime(endTime, startTime);
 
-    printf("\n\n DONE! Total execution time: %.1f sec\n\n",executionTime);
+    printf("\n\nDONE! Total execution time: %.1f sec\n\n",executionTime);
     
     return 0;
 }

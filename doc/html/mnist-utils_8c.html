@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Deep Neural Network for MNIST Handwriting Recognition: util/mnist-utils.c File Reference</title>
+<title>Deep Neural Network for MNIST Handwriting Recognition: /Users/mlind/Coding/Github/mnist-dnn/util/mnist-utils.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Utitlies for handling the MNIST files.  
+<p>Utitlies for handling the MNIST data set files.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -109,10 +109,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a5128bf9a73a458a9580b81b31c0c0d5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8c.html#a5128bf9a73a458a9580b81b31c0c0d5c">readLabelFileHeader</a> (FILE *imageFile, <a class="el" href="struct_m_n_i_s_t___label_file_header.html">MNIST_LabelFileHeader</a> *lfh)</td></tr>
 <tr class="separator:a5128bf9a73a458a9580b81b31c0c0d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8c.html#a8a5ef24b830e1a8f15a080db2ab8bb12">openMNISTImageFile</a> (char *fileName)</td></tr>
-<tr class="memdesc:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read MNIST IMAGE file header.  <a href="#a8a5ef24b830e1a8f15a080db2ab8bb12">More...</a><br /></td></tr>
+<tr class="memdesc:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a file pointer to the MNIST image file.  <a href="#a8a5ef24b830e1a8f15a080db2ab8bb12">More...</a><br /></td></tr>
 <tr class="separator:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a443abebe82519f810aeb2cb226d4bc99"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8c.html#a443abebe82519f810aeb2cb226d4bc99">openMNISTLabelFile</a> (char *fileName)</td></tr>
-<tr class="memdesc:a443abebe82519f810aeb2cb226d4bc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read MNIST label file header.  <a href="#a443abebe82519f810aeb2cb226d4bc99">More...</a><br /></td></tr>
+<tr class="memdesc:a443abebe82519f810aeb2cb226d4bc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a file pointer to the MNIST label file.  <a href="#a443abebe82519f810aeb2cb226d4bc99">More...</a><br /></td></tr>
 <tr class="separator:a443abebe82519f810aeb2cb226d4bc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0076b10c59220ac7cbf26d0c79b330d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_n_i_s_t___image.html">MNIST_Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8c.html#a0076b10c59220ac7cbf26d0c79b330d0">getImage</a> (FILE *imageFile)</td></tr>
 <tr class="memdesc:a0076b10c59220ac7cbf26d0c79b330d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next image in given MNIST image file.  <a href="#a0076b10c59220ac7cbf26d0c79b330d0">More...</a><br /></td></tr>
@@ -125,11 +125,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a07653e83b31f5347c3a38d502ce0fcf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mnist-utils_8h.html#ac563f2337f8e23f2dcc095e41c138bfa">MNIST_Label</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8c.html#a07653e83b31f5347c3a38d502ce0fcf6">getLabelByPosition</a> (FILE *labelFile, int position)</td></tr>
 <tr class="separator:a07653e83b31f5347c3a38d502ce0fcf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8c.html#a30f07d837cc0a1091e998ca7cddeb2f4">getVectorFromImage</a> (<a class="el" href="struct_m_n_i_s_t___image.html">MNIST_Image</a> *img)</td></tr>
-<tr class="memdesc:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="struct_vector.html">Vector</a> holding the image pixels of a given MNIST image.  <a href="#a30f07d837cc0a1091e998ca7cddeb2f4">More...</a><br /></td></tr>
+<tr class="memdesc:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="struct_vector.html" title="Variably-sized data structure defining a vector with &quot;count&quot; doubles. ">Vector</a> holding the image pixels of a given MNIST image.  <a href="#a30f07d837cc0a1091e998ca7cddeb2f4">More...</a><br /></td></tr>
 <tr class="separator:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utitlies for handling the MNIST files. </p>
+<div class="textblock"><p>Utitlies for handling the MNIST data set files. </p>
 <dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Matt Lind </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>July 2015 </dd></dl>
@@ -193,6 +193,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the image located at the specified position in the given MNIST image file </p>
 
 </div>
 </div>
@@ -238,6 +239,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the label located at the specified position in the given MNIST label file </p>
 
 </div>
 </div>
@@ -255,7 +257,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a <a class="el" href="struct_vector.html">Vector</a> holding the image pixels of a given MNIST image. </p>
+<p>Returns a <a class="el" href="struct_vector.html" title="Variably-sized data structure defining a vector with &quot;count&quot; doubles. ">Vector</a> holding the image pixels of a given MNIST image. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">img</td><td>A pointer to a MNIST image </td></tr>
@@ -279,8 +281,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read MNIST IMAGE file header. </p>
-<p>Open MNIST image file and read header info by reading the header info, the read pointer is moved to the position of the 1st IMAGE </p>
+<p>Returns a file pointer to the MNIST image file. </p>
+<p>Opens the file and moves the read pointer to the position of the 1st image </p><dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> for more details on the file definition </dd></dl>
 
 </div>
 </div>
@@ -298,8 +300,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read MNIST label file header. </p>
-<p>Open MNIST label file and read header info by reading the header info, the read pointer is moved to the position of the 1st LABEL </p>
+<p>Returns a file pointer to the MNIST label file. </p>
+<p>Opens the file and moves the read pointer to the position of the 1st label </p><dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> for more details on the file definition </dd></dl>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Deep Neural Network for MNIST Handwriting Recognition: util/mnist-utils.h File Reference</title>
+<title>Deep Neural Network for MNIST Handwriting Recognition: /Users/mlind/Coding/Github/mnist-dnn/util/mnist-utils.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Utitlies for handling the MNIST files.  
+<p>Utitlies for handling the MNIST data set files.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -107,6 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_vector.html">Vector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variably-sized data structure defining a vector with "count" doubles.  <a href="struct_vector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_n_i_s_t___image.html">MNIST_Image</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data block defining a MNIST image.  <a href="struct_m_n_i_s_t___image.html#details">More...</a><br /></td></tr>
@@ -120,29 +121,23 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad46661079c809c87a6417a2831b1f33a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#ad46661079c809c87a6417a2831b1f33a">MNIST_TRAINING_SET_IMAGE_FILE_NAME</a>&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/train-images-idx3-ubyte&quot;</td></tr>
-<tr class="memdesc:ad46661079c809c87a6417a2831b1f33a"><td class="mdescLeft">&#160;</td><td class="mdescRight">MNIST image training file in the data folder.  <a href="#ad46661079c809c87a6417a2831b1f33a">More...</a><br /></td></tr>
+<tr class="memitem:ad46661079c809c87a6417a2831b1f33a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#ad46661079c809c87a6417a2831b1f33a">MNIST_TRAINING_SET_IMAGE_FILE_NAME</a>&#160;&#160;&#160;&quot;./data/train-images-idx3-ubyte&quot;</td></tr>
 <tr class="separator:ad46661079c809c87a6417a2831b1f33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37971d2433c703aebccf946f2cf1a10a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a37971d2433c703aebccf946f2cf1a10a">MNIST_TRAINING_SET_LABEL_FILE_NAME</a>&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/train-labels-idx1-ubyte&quot;</td></tr>
-<tr class="memdesc:a37971d2433c703aebccf946f2cf1a10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">MNIST label training file in the data folder.  <a href="#a37971d2433c703aebccf946f2cf1a10a">More...</a><br /></td></tr>
+<tr class="memitem:a37971d2433c703aebccf946f2cf1a10a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a37971d2433c703aebccf946f2cf1a10a">MNIST_TRAINING_SET_LABEL_FILE_NAME</a>&#160;&#160;&#160;&quot;./data/train-labels-idx1-ubyte&quot;</td></tr>
 <tr class="separator:a37971d2433c703aebccf946f2cf1a10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac88cc92111215fbe06eb9918d43f1e00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#ac88cc92111215fbe06eb9918d43f1e00">MNIST_TESTING_SET_IMAGE_FILE_NAME</a>&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/t10k-images-idx3-ubyte&quot;</td></tr>
-<tr class="memdesc:ac88cc92111215fbe06eb9918d43f1e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">MNIST image testing file in the data folder.  <a href="#ac88cc92111215fbe06eb9918d43f1e00">More...</a><br /></td></tr>
+<tr class="memitem:ac88cc92111215fbe06eb9918d43f1e00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#ac88cc92111215fbe06eb9918d43f1e00">MNIST_TESTING_SET_IMAGE_FILE_NAME</a>&#160;&#160;&#160;&quot;./data/t10k-images-idx3-ubyte&quot;</td></tr>
 <tr class="separator:ac88cc92111215fbe06eb9918d43f1e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5fd6cc8cfbb6c18e24e24e046816f50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#ab5fd6cc8cfbb6c18e24e24e046816f50">MNIST_TESTING_SET_LABEL_FILE_NAME</a>&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/t10k-labels-idx1-ubyte&quot;</td></tr>
-<tr class="memdesc:ab5fd6cc8cfbb6c18e24e24e046816f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">MNIST label testing file in the data folder.  <a href="#ab5fd6cc8cfbb6c18e24e24e046816f50">More...</a><br /></td></tr>
+<tr class="memitem:ab5fd6cc8cfbb6c18e24e24e046816f50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#ab5fd6cc8cfbb6c18e24e24e046816f50">MNIST_TESTING_SET_LABEL_FILE_NAME</a>&#160;&#160;&#160;&quot;./data/t10k-labels-idx1-ubyte&quot;</td></tr>
 <tr class="separator:ab5fd6cc8cfbb6c18e24e24e046816f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ea148c64cbba94b2d074a069acfd121"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a0ea148c64cbba94b2d074a069acfd121">MNIST_MAX_TRAINING_IMAGES</a>&#160;&#160;&#160;60000</td></tr>
-<tr class="memdesc:a0ea148c64cbba94b2d074a069acfd121"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of images+labels in the TRAIN file/s  <a href="#a0ea148c64cbba94b2d074a069acfd121">More...</a><br /></td></tr>
+<tr class="memdesc:a0ea148c64cbba94b2d074a069acfd121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define number datasets (images+labels) in the TRAIN file/s.  <a href="#a0ea148c64cbba94b2d074a069acfd121">More...</a><br /></td></tr>
 <tr class="separator:a0ea148c64cbba94b2d074a069acfd121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc27b25f2ac15c55c99bdf4c59f2410"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a4fc27b25f2ac15c55c99bdf4c59f2410">MNIST_MAX_TESTING_IMAGES</a>&#160;&#160;&#160;10000</td></tr>
-<tr class="memdesc:a4fc27b25f2ac15c55c99bdf4c59f2410"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of images+labels in the TEST file/s  <a href="#a4fc27b25f2ac15c55c99bdf4c59f2410">More...</a><br /></td></tr>
+<tr class="memdesc:a4fc27b25f2ac15c55c99bdf4c59f2410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define number datasets (images+labels) in the TEST file/s.  <a href="#a4fc27b25f2ac15c55c99bdf4c59f2410">More...</a><br /></td></tr>
 <tr class="separator:a4fc27b25f2ac15c55c99bdf4c59f2410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa9a8f034b6b2dbc4f42ec4281cf2082"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#afa9a8f034b6b2dbc4f42ec4281cf2082">MNIST_IMG_WIDTH</a>&#160;&#160;&#160;28</td></tr>
-<tr class="memdesc:afa9a8f034b6b2dbc4f42ec4281cf2082"><td class="mdescLeft">&#160;</td><td class="mdescRight">image width in pixel  <a href="#afa9a8f034b6b2dbc4f42ec4281cf2082">More...</a><br /></td></tr>
 <tr class="separator:afa9a8f034b6b2dbc4f42ec4281cf2082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50bba24c079fe75bbae294ba50dbaa32"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a50bba24c079fe75bbae294ba50dbaa32">MNIST_IMG_HEIGHT</a>&#160;&#160;&#160;28</td></tr>
-<tr class="memdesc:a50bba24c079fe75bbae294ba50dbaa32"><td class="mdescLeft">&#160;</td><td class="mdescRight">image height in pixel  <a href="#a50bba24c079fe75bbae294ba50dbaa32">More...</a><br /></td></tr>
 <tr class="separator:a50bba24c079fe75bbae294ba50dbaa32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -161,10 +156,10 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a8a5ef24b830e1a8f15a080db2ab8bb12">openMNISTImageFile</a> (char *fileName)</td></tr>
-<tr class="memdesc:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read MNIST IMAGE file header.  <a href="#a8a5ef24b830e1a8f15a080db2ab8bb12">More...</a><br /></td></tr>
+<tr class="memdesc:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a file pointer to the MNIST image file.  <a href="#a8a5ef24b830e1a8f15a080db2ab8bb12">More...</a><br /></td></tr>
 <tr class="separator:a8a5ef24b830e1a8f15a080db2ab8bb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a443abebe82519f810aeb2cb226d4bc99"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a443abebe82519f810aeb2cb226d4bc99">openMNISTLabelFile</a> (char *fileName)</td></tr>
-<tr class="memdesc:a443abebe82519f810aeb2cb226d4bc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read MNIST label file header.  <a href="#a443abebe82519f810aeb2cb226d4bc99">More...</a><br /></td></tr>
+<tr class="memdesc:a443abebe82519f810aeb2cb226d4bc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a file pointer to the MNIST label file.  <a href="#a443abebe82519f810aeb2cb226d4bc99">More...</a><br /></td></tr>
 <tr class="separator:a443abebe82519f810aeb2cb226d4bc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0076b10c59220ac7cbf26d0c79b330d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_n_i_s_t___image.html">MNIST_Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a0076b10c59220ac7cbf26d0c79b330d0">getImage</a> (FILE *imageFile)</td></tr>
 <tr class="memdesc:a0076b10c59220ac7cbf26d0c79b330d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next image in given MNIST image file.  <a href="#a0076b10c59220ac7cbf26d0c79b330d0">More...</a><br /></td></tr>
@@ -177,13 +172,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a07653e83b31f5347c3a38d502ce0fcf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mnist-utils_8h.html#ac563f2337f8e23f2dcc095e41c138bfa">MNIST_Label</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a07653e83b31f5347c3a38d502ce0fcf6">getLabelByPosition</a> (FILE *labelFile, int position)</td></tr>
 <tr class="separator:a07653e83b31f5347c3a38d502ce0fcf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_vector.html">Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a30f07d837cc0a1091e998ca7cddeb2f4">getVectorFromImage</a> (<a class="el" href="struct_m_n_i_s_t___image.html">MNIST_Image</a> *img)</td></tr>
-<tr class="memdesc:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="struct_vector.html">Vector</a> holding the image pixels of a given MNIST image.  <a href="#a30f07d837cc0a1091e998ca7cddeb2f4">More...</a><br /></td></tr>
+<tr class="memdesc:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="struct_vector.html" title="Variably-sized data structure defining a vector with &quot;count&quot; doubles. ">Vector</a> holding the image pixels of a given MNIST image.  <a href="#a30f07d837cc0a1091e998ca7cddeb2f4">More...</a><br /></td></tr>
 <tr class="separator:a30f07d837cc0a1091e998ca7cddeb2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a809b5e203ded6cda3999459a9a7c39b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-utils_8h.html#a809b5e203ded6cda3999459a9a7c39b6">getStandardDigitPixel</a> (int num, int pixelId)</td></tr>
-<tr class="separator:a809b5e203ded6cda3999459a9a7c39b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utitlies for handling the MNIST files. </p>
+<div class="textblock"><p>Utitlies for handling the MNIST data set files. </p>
 <dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Matt Lind </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>July 2015 </dd></dl>
@@ -198,8 +191,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>image height in pixel </p>
-
 </div>
 </div>
 <a class="anchor" id="afa9a8f034b6b2dbc4f42ec4281cf2082"></a>
@@ -211,8 +202,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>image width in pixel </p>
 
 </div>
 </div>
@@ -226,7 +215,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>number of images+labels in the TEST file/s </p>
+<p>Define number datasets (images+labels) in the TEST file/s. </p>
 
 </div>
 </div>
@@ -240,7 +229,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>number of images+labels in the TRAIN file/s </p>
+<p>Define number datasets (images+labels) in the TRAIN file/s. </p>
 
 </div>
 </div>
@@ -249,12 +238,10 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MNIST_TESTING_SET_IMAGE_FILE_NAME&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/t10k-images-idx3-ubyte&quot;</td>
+          <td class="memname">#define MNIST_TESTING_SET_IMAGE_FILE_NAME&#160;&#160;&#160;&quot;./data/t10k-images-idx3-ubyte&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>MNIST image testing file in the data folder. </p>
 
 </div>
 </div>
@@ -263,12 +250,10 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MNIST_TESTING_SET_LABEL_FILE_NAME&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/t10k-labels-idx1-ubyte&quot;</td>
+          <td class="memname">#define MNIST_TESTING_SET_LABEL_FILE_NAME&#160;&#160;&#160;&quot;./data/t10k-labels-idx1-ubyte&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>MNIST label testing file in the data folder. </p>
 
 </div>
 </div>
@@ -277,12 +262,10 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MNIST_TRAINING_SET_IMAGE_FILE_NAME&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/train-images-idx3-ubyte&quot;</td>
+          <td class="memname">#define MNIST_TRAINING_SET_IMAGE_FILE_NAME&#160;&#160;&#160;&quot;./data/train-images-idx3-ubyte&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>MNIST image training file in the data folder. </p>
 
 </div>
 </div>
@@ -291,12 +274,10 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MNIST_TRAINING_SET_LABEL_FILE_NAME&#160;&#160;&#160;&quot;/Users/mlind/Coding/Github/mnist-cvnn/data/train-labels-idx1-ubyte&quot;</td>
+          <td class="memname">#define MNIST_TRAINING_SET_LABEL_FILE_NAME&#160;&#160;&#160;&quot;./data/train-labels-idx1-ubyte&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>MNIST label training file in the data folder. </p>
 
 </div>
 </div>
@@ -404,6 +385,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the image located at the specified position in the given MNIST image file </p>
 
 </div>
 </div>
@@ -449,32 +431,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a809b5e203ded6cda3999459a9a7c39b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int getStandardDigitPixel </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pixelId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Returns the label located at the specified position in the given MNIST label file </p>
 
 </div>
 </div>
@@ -492,7 +449,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a <a class="el" href="struct_vector.html">Vector</a> holding the image pixels of a given MNIST image. </p>
+<p>Returns a <a class="el" href="struct_vector.html" title="Variably-sized data structure defining a vector with &quot;count&quot; doubles. ">Vector</a> holding the image pixels of a given MNIST image. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">img</td><td>A pointer to a MNIST image </td></tr>
@@ -516,9 +473,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read MNIST IMAGE file header. </p>
-<dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> for definition details</dd></dl>
-<p>Open MNIST image file and read header info by reading the header info, the read pointer is moved to the position of the 1st IMAGE </p>
+<p>Returns a file pointer to the MNIST image file. </p>
+<p>Opens the file and moves the read pointer to the position of the 1st image </p><dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> for more details on the file definition </dd></dl>
 
 </div>
 </div>
@@ -536,9 +492,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read MNIST label file header. </p>
-<dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> for definition details</dd></dl>
-<p>Open MNIST label file and read header info by reading the header info, the read pointer is moved to the position of the 1st LABEL </p>
+<p>Returns a file pointer to the MNIST label file. </p>
+<p>Opens the file and moves the read pointer to the position of the 1st label </p><dl class="section see"><dt>See also</dt><dd><a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a> for more details on the file definition </dd></dl>
 
 </div>
 </div>

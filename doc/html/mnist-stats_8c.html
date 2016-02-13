@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Deep Neural Network for MNIST Handwriting Recognition: util/mnist-stats.c File Reference</title>
+<title>Deep Neural Network for MNIST Handwriting Recognition: /Users/mlind/Coding/Github/mnist-dnn/util/mnist-stats.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Utitlies for displaying processing details in the terminal.  
+<p>Utitlies for displaying details of processing the MNIST data set in the terminal screen.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="screen_8h_source.html">screen.h</a>&quot;</code><br />
@@ -110,13 +110,14 @@ Functions</h2></td></tr>
 <tr class="memdesc:a53dfbeeccdcba8c3c5e707487f7d422e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs a 28x28 MNIST image as charachters ("."s and "X"s)  <a href="#a53dfbeeccdcba8c3c5e707487f7d422e">More...</a><br /></td></tr>
 <tr class="separator:a53dfbeeccdcba8c3c5e707487f7d422e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae72b998f2876df0e8b7cfa9501531e6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-stats_8c.html#ae72b998f2876df0e8b7cfa9501531e6e">displayTrainingProgress</a> (int imgCount, int errCount)</td></tr>
-<tr class="memdesc:ae72b998f2876df0e8b7cfa9501531e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs reading progress while processing MNIST training images.  <a href="#ae72b998f2876df0e8b7cfa9501531e6e">More...</a><br /></td></tr>
+<tr class="memdesc:ae72b998f2876df0e8b7cfa9501531e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs progress to the console while processing MNIST training images.  <a href="#ae72b998f2876df0e8b7cfa9501531e6e">More...</a><br /></td></tr>
 <tr class="separator:ae72b998f2876df0e8b7cfa9501531e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9331d15ac78b41bbed855cb8221168fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mnist-stats_8c.html#a9331d15ac78b41bbed855cb8221168fb">displayTestingProgress</a> (int imgCount, int errCount)</td></tr>
+<tr class="memdesc:a9331d15ac78b41bbed855cb8221168fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs progress to the console while processing MNIST testing images.  <a href="#a9331d15ac78b41bbed855cb8221168fb">More...</a><br /></td></tr>
 <tr class="separator:a9331d15ac78b41bbed855cb8221168fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utitlies for displaying processing details in the terminal. </p>
+<div class="textblock"><p>Utitlies for displaying details of processing the MNIST data set in the terminal screen. </p>
 <dl class="section author"><dt>Author</dt><dd>Matt Lind </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>July 2015 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -163,7 +164,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Outputs a 28x28 MNIST image as charachters ("."s and "X"s) </p>
-<p>Outputs a 28x28 MNIST image as charachters ("."s and "X"s) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img</td><td>Pointer to a MNIST image </td></tr>
+    <tr><td class="paramname">lbl</td><td>Target classification </td></tr>
+    <tr><td class="paramname">cls</td><td>Actual classification </td></tr>
+    <tr><td class="paramname">row</td><td>Row on screen (x-coordinate) where to display the image </td></tr>
+    <tr><td class="paramname">col</td><td><a class="el" href="struct_column.html" title="Variably-sized data structure modeling a vector of nodes. ">Column</a> on screen (y-coordinate) where to display the image </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -192,7 +202,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Outputs a 28x28 text frame at a defined screen position. </p>
-<p>Outputs a 28x28 text frame at a defined screen position </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Row of terminal screen </td></tr>
+    <tr><td class="paramname">col</td><td><a class="el" href="struct_column.html" title="Variably-sized data structure modeling a vector of nodes. ">Column</a> of terminal screen </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -220,6 +236,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Outputs progress to the console while processing MNIST testing images. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imgCount</td><td>Number of images already read from the MNIST file </td></tr>
+    <tr><td class="paramname">errCount</td><td>Number of errors (images incorrectly classified) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ae72b998f2876df0e8b7cfa9501531e6e"></a>
@@ -246,8 +271,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Outputs reading progress while processing MNIST training images. </p>
-<p>Outputs reading progress while processing MNIST training images </p>
+<p>Outputs progress to the console while processing MNIST training images. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imgCount</td><td>Number of images already read from the MNIST file </td></tr>
+    <tr><td class="paramname">errCount</td><td>Number of errors (images incorrectly classified) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

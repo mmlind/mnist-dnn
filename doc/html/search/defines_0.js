@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['max_5fconvolutional_5ffilter',['MAX_CONVOLUTIONAL_FILTER',['../mlnn_8h.html#ade13aebf4875485aed60bdb1b32db470',1,'mlnn.h']]],
+  ['max_5fconvolutional_5ffilter',['MAX_CONVOLUTIONAL_FILTER',['../dnn_8h.html#ade13aebf4875485aed60bdb1b32db470',1,'dnn.h']]],
   ['mnist_5fimg_5fheight',['MNIST_IMG_HEIGHT',['../mnist-utils_8h.html#a50bba24c079fe75bbae294ba50dbaa32',1,'mnist-utils.h']]],
   ['mnist_5fimg_5fwidth',['MNIST_IMG_WIDTH',['../mnist-utils_8h.html#afa9a8f034b6b2dbc4f42ec4281cf2082',1,'mnist-utils.h']]],
   ['mnist_5fmax_5ftesting_5fimages',['MNIST_MAX_TESTING_IMAGES',['../mnist-utils_8h.html#a4fc27b25f2ac15c55c99bdf4c59f2410',1,'mnist-utils.h']]],
