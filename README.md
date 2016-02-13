@@ -22,6 +22,13 @@ in the project directory. The binary will be created inside the `/bin` folder an
 $ ./bin/mnist-dnn
 ```
 
+### Code Review
+
+If you're interested in how the code works take a look at my blog entry where I review the code for this deep neueral network in detail.
+
+* Code Review for [Deep Neural Network for MNIST Handwriting Recognition](http://mmlind.github.io/Deep_Neural_Network_for_MNIST_Handwriting_Recognition/)
+
+
 ### Documentation
 
 The  `/doc` folder contains a doxygen configuration file. When you run it with doxygen it will create updated [HTML documentation](https://rawgit.com/mmlind/mnist-3lnn/master/doc/html/index.html) in the `/doc/html` folder.
