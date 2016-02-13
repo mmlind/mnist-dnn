@@ -1,6 +1,6 @@
 # MNIST Deep Neural Network
 
-## A deep neural network for MNIST image recognition with the following key features:
+### A deep neural network for MNIST image recognition with the following key features:
 
 supports unlimited number of layers, nodes and weights (only restriction is memory)
 supports fully connected and convolutional layers
@@ -10,9 +10,13 @@ __super fast!__ :-)
 
 
 
-### See also
-[Deep Neural Network for MNIST Handwriting Recognition](http://yann.lecun.com/exdb/mnist/)
+#### See also
 
-### Version 1.0
+* Yann Lecun's [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/)
 
-### Published: February 2016
+* Doxygen [Code Documentation](https://rawgit.com/mmlind/mnist-dnn/master/doc/html/)
+
+
+Version 1.0
+
+Published: February 2016
