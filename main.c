@@ -3,8 +3,6 @@
  *
  * @mainpage MNIST Deep Neural Network
  *
- * @brief A deep (multi-layer) mixed-type (convolutional, feed-forward) neural network handling MNIST
- *
  * @details A deep neural network for MNIST image recognition with the following key features:
  * - supports unlimited number of layers, nodes and weights (only restriction is memory)
  * - supports fully connected and convolutional layers
@@ -149,7 +147,7 @@ int main(int argc, const char * argv[]) {
     
     // clear screen of terminal window and display title
     clearScreen();
-    printf("MNIST-DNN: A deep neural network processing the MNIST handwritten digit images\n\n");
+    printf("MNIST-DNN: A deep neural network for MNIST image recognition \n\n");
 
     // Define the network's overall architecture (layers, nodes, activation function, etc.)
     
